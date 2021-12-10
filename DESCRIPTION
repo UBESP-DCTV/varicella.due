@@ -1,0 +1,44 @@
+Package: varicella.due
+Title: Varicella Due
+Version: 0.0.0.9000
+Authors@R: c(
+    person("Corrado", "Lanera", , "corrado.lanera@ubep.unipd.it", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-0520-7428")),
+    person("Andrea", "Francavilla", , "andrea.francavilla@ubep.unipd.it", role = "ctb",
+           comment = c(ORCID = "YOUR-ORCID-ID")),
+    person("Ileana", "Baldi", , "ileana.baldi@ubep.unipd.it", role = "ctb",
+           comment = c(ORCID = "0000-0002-8578-9164")),
+    person("UBEP", role = "cph")
+  )
+Description: What the package does (one paragraph).
+License: file LICENSE
+Depends: 
+    R (>= 2.10)
+Suggests: 
+    autotestthat (>= 0.1.1),
+    checkmate,
+    devtools,
+    fs,
+    gitcreds,
+    here,
+    lintr,
+    markdown,
+    miniUI,
+    purrr,
+    spelling,
+    stringr,
+    tarchetypes (>= 0.3.2.9000),
+    targets (>= 0.9.0.9000),
+    testthat (>= 3.0.0),
+    usethis,
+    withr
+Remotes: 
+    CorradoLanera/autotestthat,
+    ropensci/tarchetypes,
+    ropensci/targets
+Config/testthat/edition: 3
+Encoding: UTF-8
+Language: en-US
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.2
