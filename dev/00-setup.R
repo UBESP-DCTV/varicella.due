@@ -53,6 +53,8 @@ usethis::use_readme_rmd()
 usethis::use_code_of_conduct("corrado.lanera@ubep.unipd.it")
 usethis::use_lifecycle_badge("experimental")
 
+usethis::use_package_doc()
+
 usethis::git_vaccinate()
 
 usethis::use_spell_check()
@@ -74,8 +76,3 @@ usethis::edit_r_profile("project")
 usethis::use_tidy_description()
 renv::status()
 renv::snapshot()
-
-
-
-
-
