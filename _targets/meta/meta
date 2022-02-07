@@ -1,0 +1,3 @@
+name|type|data|command|depend|seed|path|time|size|bytes|format|iteration|parent|children|seconds|warnings|error
+ciao|stem|4a74c53de24a35aa|2a2cf7e632cc6f0b|fdcdf23f9eace6e0|-256703320||t19030.604544606s|a05626eeb81ea279|51|rds|vector|||0||
+report|stem|612a0a8e5ee85baa|e6065f2c8a5c475d|f636436be1f8a0bb|-237041703|reports/report.html*reports/report.Rmd|t19030.6057074608s|76a998c9b7792641|730142|file|vector|||1.33||

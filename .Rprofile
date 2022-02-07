@@ -1,11 +1,15 @@
 source("renv/activate.R")
 
+options(
+  tidyverse.quiet = TRUE
+)
 
 if (interactive()) {
   suppressPackageStartupMessages(suppressWarnings({
     library(devtools)
     library(usethis)
-    library(testthat)
     library(checkmate)
+    library(testthat)
+    library(targets)
   }))
 }

@@ -1,0 +1,19 @@
+---
+title: "Varicella 2"
+author: "CL & AF"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+```{r}
+my_result <- targets::tar_read("ciao")
+
+my_result
+```
+

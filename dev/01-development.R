@@ -1,6 +1,6 @@
+# Targets setup
 
-
-
+targets::tar_script()
 
 # Dev cycle -------------------------------------------------------
 
@@ -12,3 +12,10 @@ lintr::lint_package()
 # CTRL + SHIFT + D: update project documentation
 # CTRL + SHIFT + T: run all project's tests
 # CTRL + SHIFT + E: run all CRAN tests
+
+
+
+# Targets cycle ---------------------------------------------------
+
+source(here::here("run.R"))
+targets::tar_visnetwork()

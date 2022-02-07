@@ -5,7 +5,7 @@
 dev_pkgs <- c(
   "checkmate", "devtools", "fs", "gitcreds", "here", "markdown",
   "miniUI", "purrr", "stringr", "testthat", "usethis", "withr",
-  "spelling", "lintr"
+  "spelling", "lintr", "visNetwork"
 )
 
 
