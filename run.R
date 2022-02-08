@@ -4,7 +4,7 @@
       if (requireNamespace("rstudioapi") && save_all) {
         rstudioapi::documentSaveAll()
       }
-      targets::tar_visnetwork(targets_only = TRUE) |>
+      targets::tar_visnetwork() |>
         print()
 
       proceed <- usethis::ui_yeah(
@@ -17,7 +17,9 @@
         list(RSTUDIO_VERSION = "2021.09.0"),
         targets::tar_make()
       )
-    }
+      targets::tar_visnetwork() |>
+        print()
+    2}
   }
 }()
 

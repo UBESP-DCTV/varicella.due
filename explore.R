@@ -15,4 +15,8 @@ list.files(here("R"), pattern = "\\.R$", full.names = TRUE) |>
 
 # Code here below -------------------------------------------------
 
+popolazione <- tar_read("popolazione")
+popolazione$ConsensoPedianet |> table()
 
+varic_df <- tar_read("varic_df")
+varic_df

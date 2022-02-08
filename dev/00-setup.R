@@ -11,6 +11,7 @@ dev_pkgs <- c(
 
 renv::install(dev_pkgs)
 
+
 usethis::use_description(check_name = FALSE)
 usethis::use_proprietary_license("Corrado Lanera & UBEP")
 
@@ -19,12 +20,11 @@ dev_pkgs |>
   purrr::walk(usethis::use_package, type = "Suggests")
 
 
-
 meta_pkgs <- c("tidymodels", "tidyverse")
 renv::install(meta_pkgs)
 
 
-prj_pkgs <- c(
+prj_pkgs <- c("tibble", "readr"
 )
 renv::install(prj_pkgs)
 prj_pkgs |>
@@ -44,6 +44,8 @@ purrr::walk(gh_dev_pkgs, ~{
   package_name |>
     usethis::use_dev_package(type = "Suggests", remote = .x)
 })
+
+
 
 
 

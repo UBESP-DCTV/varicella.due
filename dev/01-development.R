@@ -2,6 +2,25 @@
 
 targets::tar_script()
 
+
+
+# global setup ---------------------------------------------------
+
+usethis::edit_r_environ("project")
+usethis::use_tibble()
+
+# Functions development
+
+usethis::use_test("get_data_path")
+usethis::use_r("get_data_path")
+
+
+usethis::use_test("read_varic")
+usethis::use_r("read_varic")
+
+usethis::use_test("or_null")
+
+
 # Dev cycle -------------------------------------------------------
 
 spelling::spell_check_package()
