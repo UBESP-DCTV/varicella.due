@@ -14,6 +14,10 @@ Description: What the package does (one paragraph).
 License: file LICENSE
 Depends: 
     R (>= 2.10)
+Imports: 
+    rlang (>= 0.4.11),
+    readr,
+    tibble
 Suggests: 
     autotestthat (>= 0.1.1),
     checkmate,
@@ -22,6 +26,7 @@ Suggests:
     gitcreds,
     here,
     lintr,
+    roxygen2,
     markdown,
     miniUI,
     purrr,
@@ -42,6 +47,3 @@ Language: en-US
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
-Imports: 
-    readr,
-    tibble

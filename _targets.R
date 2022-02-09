@@ -2,13 +2,12 @@ library(targets)
 library(tarchetypes)
 library(here)
 
+
+
 list.files(here("R"), pattern = "\\.R$", full.names = TRUE) |>
   lapply(source) |> invisible()
 
-# Set target-specific options such as packages.
-tar_option_set(
-  packages = c("here")#, error = "continue"
-)
+
 
 # End this file with a list of target objects.
 list(
@@ -34,6 +33,13 @@ list(
     format = "file"
   ),
   tar_target(varic_df, read_varic(rawDf, "varic_df")),
+
+  tar_target(
+    goldWithFirstDate,
+    eval_dates_for_gold(gold, varic_df)
+  ),
+
+
 
   # compile the report
   tar_render(report, here("reports/report.Rmd"))

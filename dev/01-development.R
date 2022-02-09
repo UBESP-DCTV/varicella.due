@@ -20,6 +20,9 @@ usethis::use_r("read_varic")
 
 usethis::use_test("or_null")
 
+usethis::use_test("eval_dates_for_gold")
+usethis::use_r("eval_dates_for_gold")
+
 
 # Dev cycle -------------------------------------------------------
 

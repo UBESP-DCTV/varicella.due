@@ -15,11 +15,12 @@ read_varic <- function(
   path,
   db = c(NULL, "popolazione", "positive_gold", "varic_df")
 ) {
-  stopifnot(!is.null(db))
   stopifnot(file.exists(path))
+  stopifnot(!is.null(db))
   db <- match.arg(db)
 
-  switch (db,
+
+  switch(db,
     "popolazione" = read_popolazione(path),
     "positive_gold" = read_gold(path),
     "varic_df" = read_varic_df(path),

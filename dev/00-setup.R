@@ -4,7 +4,7 @@
 
 dev_pkgs <- c(
   "checkmate", "devtools", "fs", "gitcreds", "here", "markdown",
-  "miniUI", "purrr", "stringr", "testthat", "usethis", "withr",
+  "miniUI", "purrr", "testthat", "usethis", "withr",
   "spelling", "lintr", "visNetwork"
 )
 
@@ -24,13 +24,11 @@ meta_pkgs <- c("tidymodels", "tidyverse")
 renv::install(meta_pkgs)
 
 
-prj_pkgs <- c("tibble", "readr"
-)
+prj_pkgs <- c("tibble", "readr", "dplyr", "stringr")
 renv::install(prj_pkgs)
 prj_pkgs |>
   purrr::walk(usethis::use_package)
-
-
+usethis::use_tidy_eval()
 
 gh_dev_pkgs <- c(
   "ropensci/targets",

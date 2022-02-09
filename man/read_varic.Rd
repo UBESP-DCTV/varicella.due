@@ -4,7 +4,7 @@
 \alias{read_varic}
 \title{Read varicella2 DBs}
 \usage{
-read_varic(path, db = c("popolazione", "positive_gold", "varic_df"))
+read_varic(path, db = c(NULL, "popolazione", "positive_gold", "varic_df"))
 }
 \arguments{
 \item{what}{(chr) one of "popolazione", "positive_gold", "varic_df"}

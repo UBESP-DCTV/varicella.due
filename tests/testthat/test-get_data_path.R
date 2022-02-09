@@ -13,6 +13,8 @@ test_that("get_data_path works", {
   expect_file_exists(varic_df)
 })
 
+
+
 test_that("environmental variable is set", {
   # setup
   withr::local_envvar(list(DATA_PATH = NULL))

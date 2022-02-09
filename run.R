@@ -19,7 +19,7 @@
       )
       targets::tar_visnetwork() |>
         print()
-    2}
+    }
   }
 }()
 
