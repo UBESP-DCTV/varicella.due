@@ -7,18 +7,23 @@
 read_varic(path, db = c(NULL, "popolazione", "positive_gold", "varic_df"))
 }
 \arguments{
-\item{what}{(chr) one of "popolazione", "positive_gold", "varic_df"}
+\item{path}{(chr) path to RDS to import}
+
+\item{db}{(chr) one of  "popolazione", "positive_gold", or
+"varic_df". Note that this is a mandatory field.}
 }
 \value{
 a \link[tibble:tibble-package]{tibble} for the corresponding
-\link{what} dataset.
+\code{path} dataset.
 }
 \description{
 Read varicella2 DBs
 }
 \examples{
-read_varic("popolazione")
-read_varic("positive_gold")
-read_varic("varic_df")
+\dontrun{
+  read_varic(get_data_path(), "popolazione")
+  read_varic(get_data_path(), "positive_gold")
+  read_varic(get_data_path(), "varic_df")
+}
 
 }

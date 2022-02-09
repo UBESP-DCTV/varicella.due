@@ -3,6 +3,17 @@
 targets::tar_script()
 
 
+# packages --------------------------------------------------------
+
+prj_pkgs <- c(
+  "tibble", "readr", "dplyr", "stringr", "lubridate", "tidyr"
+)
+renv::install(prj_pkgs)
+prj_pkgs |>
+  purrr::walk(usethis::use_package)
+
+renv::status()
+renv::snapshot()
 
 # global setup ---------------------------------------------------
 
@@ -24,6 +35,9 @@ usethis::use_test("eval_dates_for_gold")
 usethis::use_r("eval_dates_for_gold")
 
 
+usethis::use_test("expand_prepost_positive")
+usethis::use_r("expand_prepost_positive")
+
 # Dev cycle -------------------------------------------------------
 
 spelling::spell_check_package()
@@ -40,4 +54,3 @@ lintr::lint_package()
 # Targets cycle ---------------------------------------------------
 
 source(here::here("run.R"))
-targets::tar_visnetwork()

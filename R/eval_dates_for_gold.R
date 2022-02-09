@@ -1,10 +1,10 @@
 #' Create dated gold standard
 #'
-#' Create a version of the gold stadnard with the first date in which
+#' Create a version of the gold standard with the first date in which
 #' a patient became positive to Zoster
 #'
 #' @param gold (df) the gold standard
-#' @param varic_df the whole varicalla dataset
+#' @param varic_df the whole varicella dataset
 #'
 #' @return a [tibble][tibble::tibble-package]
 #' @export
@@ -25,7 +25,7 @@ eval_dates_for_gold <- function(gold, varic_df) {
 
   varic_df |>
     dplyr::distinct() |>
-    dplyr::filter(nPaz %in% gold[["nPaz"]]) |>
+    dplyr::filter(.data[["nPaz"]] %in% gold[["nPaz"]]) |>
     dplyr::filter(
       stringr::str_detect(.data[["MotivoAccesso"]], pattern) |
         stringr::str_detect(.data[["MotivoAccesso2"]], pattern) |
@@ -36,9 +36,15 @@ eval_dates_for_gold <- function(gold, varic_df) {
         stringr::str_detect(.data[["Testo_Soap"]], pattern) |
         stringr::str_detect(.data[["Diagnosi_Spec"]], pattern)
     ) |>
-    dplyr::group_by(nPaz, Id_Medico) |>
+    dplyr::group_by(.data[["nPaz"]], .data[["Id_Medico"]]) |>
     dplyr::filter(.data[["Data"]] == min(.data[["Data"]])) |>
     dplyr::ungroup() |>
-    dplyr::distinct(Id_Medico, nPaz, Data, .keep_all = TRUE) |>
-    dplyr::inner_join(dplyr::distinct(gold, Id_Medico, nPaz))
+    dplyr::distinct(
+      .data[["Id_Medico"]], .data[["nPaz"]], .data[["Data"]],
+      .keep_all = TRUE
+    ) |>
+    dplyr::inner_join(
+      gold |>
+        dplyr::distinct(.data[["Id_Medico"]], .data[["nPaz"]])
+    )
 }

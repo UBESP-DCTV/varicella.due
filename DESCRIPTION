@@ -17,7 +17,11 @@ Depends:
 Imports: 
     rlang (>= 0.4.11),
     readr,
-    tibble
+    tibble,
+    dplyr,
+    stringr,
+    lubridate,
+    tidyr
 Suggests: 
     autotestthat (>= 0.1.1),
     checkmate,
@@ -31,7 +35,6 @@ Suggests:
     miniUI,
     purrr,
     spelling,
-    stringr,
     tarchetypes (>= 0.3.2.9000),
     targets (>= 0.9.0.9000),
     testthat (>= 3.0.0),

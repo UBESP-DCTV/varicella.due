@@ -6,6 +6,7 @@
 
 library(targets)  # use tar_read(target_name) to load a target anywhere
 library(here)
+library(tidyverse)
 
 # load all your custom functions
 list.files(here("R"), pattern = "\\.R$", full.names = TRUE) |>
@@ -15,8 +16,12 @@ list.files(here("R"), pattern = "\\.R$", full.names = TRUE) |>
 
 # Code here below -------------------------------------------------
 
-popolazione <- tar_read("popolazione")
-popolazione$ConsensoPedianet |> table()
+popolazione <- tar_read(popolazione)
+varic_df <- tar_read(varic_df)
+gold_date <- tar_read(goldDate)
+gold <- tar_read(gold)
 
-varic_df <- tar_read("varic_df")
-varic_df
+
+
+
+gold

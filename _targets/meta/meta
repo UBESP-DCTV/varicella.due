@@ -1,17 +1,20 @@
 name|type|data|command|depend|seed|path|time|size|bytes|format|iteration|parent|children|seconds|warnings|error
 ciao|stem|4a74c53de24a35aa|2a2cf7e632cc6f0b|fdcdf23f9eace6e0|-256703320||t19030.604544606s|a05626eeb81ea279|51|rds|vector|||0||
 report|stem|612a0a8e5ee85baa|e6065f2c8a5c475d|1e316db1dd3d06e7|-237041703|reports/report.html*reports/report.Rmd|t19030.6325457726s|76a998c9b7792641|730142|file|vector|||1.3||
-rawDf|stem|e976b1649c696410|2aa98dc6e21cc4b1|863033f7b92f9b85|-1270033824|C:\Users\corrado.lanera\Unit of Biostatistics Epidemiology and Public Health\LAIMS - Varicella 2\old\slvr2\slvr2\data/varic_df.rds|t19030.6403651244s|4ae7815c15f5e546|555762475|file|vector|||0||
-rawPopolazione|stem|f901586d81526d4f|4df1561d6daca632|863033f7b92f9b85|-725040042|C:\Users\corrado.lanera\Unit of Biostatistics Epidemiology and Public Health\LAIMS - Varicella 2\old\slvr2\slvr2\data/popolazione.rds|t19030.6393640897s|f774a5dda3dc4ce1|6878266|file|vector|||0||
-rawGold|stem|aec870bf4b0014ca|067e58fc65a8dc71|863033f7b92f9b85|-694592328|C:\Users\corrado.lanera\Unit of Biostatistics Epidemiology and Public Health\LAIMS - Varicella 2\old\slvr2\slvr2\data/positive_gold.rdS|t19030.6406813927s|ad1c6db4126fbb52|119880|file|vector|||0||
 varic_df|stem|83df602601a3eb84|54f04991b2ed2e74|c7ff139ef61ac050|-541543958||t19031.9159319668s|26f61e226f08af25|65332713|rds|vector|||6.96||
 popolazione|stem|c17a26f08ce45f80|84588d5e6ecfb7bc|31bd699c1b40e8ec|1106300200||t19031.9159371321s|d6219b7f5946e6bf|416993|rds|vector|||0.09||
-gold|stem|06249295b898befd|cf3dbce01b8d6ac8|136a283a895bdfe9|1293082345||t19031.9159374998s|eb260e5378a05460|13444|rds|vector|||0||
+goldWithFirstDate|stem|495863281ef4ac38|87951fc9207d3dec|dbe48b20fdc879b2|-1890851130||t19032.0330012617s|89f1b7b42feea022|190512|rds|vector|||4.69||
+rawDf|stem|e976b1649c696410|2aa98dc6e21cc4b1|863033f7b92f9b85|-1270033824|C:\Users\corrado.lanera\Unit of Biostatistics Epidemiology and Public Health\LAIMS - Varicella 2\old\slvr2\data/varic_df.rds|t19030.6403651244s|4ae7815c15f5e546|555762475|file|vector|||0||
+rawPopolazione|stem|f901586d81526d4f|4df1561d6daca632|863033f7b92f9b85|-725040042|C:\Users\corrado.lanera\Unit of Biostatistics Epidemiology and Public Health\LAIMS - Varicella 2\old\slvr2\data/popolazione.rds|t19030.6393640897s|f774a5dda3dc4ce1|6878266|file|vector|||0||
+rawGold|stem|aec870bf4b0014ca|067e58fc65a8dc71|863033f7b92f9b85|-694592328|C:\Users\corrado.lanera\Unit of Biostatistics Epidemiology and Public Health\LAIMS - Varicella 2\old\slvr2\data/positive_gold.rdS|t19030.6406813927s|ad1c6db4126fbb52|119880|file|vector|||0.02||
+globalGold|stem|06249295b898befd|cf3dbce01b8d6ac8|136a283a895bdfe9|-518652059||t19032.8667637245s|eb260e5378a05460|13444|rds|vector|||0.1||
+goldDate|stem|495863281ef4ac38|eb79df1ecbec7e9b|5273c199915cfb1d|409528534||t19032.962127774s|89f1b7b42feea022|190512|rds|vector|||3.61||
 read_gold|function|1db35311900483f0||||||||||||||
 read_popolazione|function|1db35311900483f0||||||||||||||
 read_varic_df|function|1db35311900483f0||||||||||||||
 "%||%"|function|176c749ab515e6f3||||||||||||||
-eval_dates_for_gold|function|f17712e0927698c0||||||||||||||
+eval_dates_for_gold|function|b01280e44beb0797||||||||||||||
+expand_prepost_positive|function|f6bb79381372a69c||||||||||||||
 get_data_path|function|e10817345f3a05a9||||||||||||||
 read_varic|function|82706840f79b7ed3||||||||||||||
-goldWithFirstDate|stem|495863281ef4ac38|87951fc9207d3dec|dbe48b20fdc879b2|-1890851130||t19032.0330012617s|89f1b7b42feea022|190512|rds|vector|||4.69||
+gold|stem|adce1b4a53af9ab5|88dc691aae14b985|8a141a93c9326508|1293082345||t19032.9722476241s|91d8b4b5d014f094|378865|rds|vector|||0.44||

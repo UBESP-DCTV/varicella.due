@@ -1,15 +1,19 @@
 #' Read varicella2 DBs
 #'
-#' @param what (chr) one of "popolazione", "positive_gold", "varic_df"
+#' @param path (chr) path to RDS to import
+#' @param db (chr) one of  "popolazione", "positive_gold", or
+#'   "varic_df". Note that this is a mandatory field.
 #'
 #' @return a [tibble][tibble::tibble-package] for the corresponding
-#'  [what] dataset.
+#'  `path` dataset.
 #' @export
 #'
 #' @examples
-#' read_varic("popolazione")
-#' read_varic("positive_gold")
-#' read_varic("varic_df")
+#' \dontrun{
+#'   read_varic(get_data_path(), "popolazione")
+#'   read_varic(get_data_path(), "positive_gold")
+#'   read_varic(get_data_path(), "varic_df")
+#' }
 #'
 read_varic <- function(
   path,

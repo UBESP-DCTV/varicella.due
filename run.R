@@ -14,10 +14,12 @@
 
     if (proceed) {
       withr::with_envvar(
-        list(RSTUDIO_VERSION = "2021.09.0"),
-        targets::tar_make()
+        list(RSTUDIO_VERSION = "2021.09.0"), {
+         devtools::test(stop_on_failure = TRUE)
+         targets::tar_make()
+        }
       )
-      targets::tar_visnetwork() |>
+      targets::tar_visnetwork(targets_only = TRUE) |>
         print()
     }
   }

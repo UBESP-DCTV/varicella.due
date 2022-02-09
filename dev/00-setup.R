@@ -24,10 +24,6 @@ meta_pkgs <- c("tidymodels", "tidyverse")
 renv::install(meta_pkgs)
 
 
-prj_pkgs <- c("tibble", "readr", "dplyr", "stringr")
-renv::install(prj_pkgs)
-prj_pkgs |>
-  purrr::walk(usethis::use_package)
 usethis::use_tidy_eval()
 
 gh_dev_pkgs <- c(

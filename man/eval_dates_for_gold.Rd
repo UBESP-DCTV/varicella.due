@@ -9,13 +9,13 @@ eval_dates_for_gold(gold, varic_df)
 \arguments{
 \item{gold}{(df) the gold standard}
 
-\item{varic_df}{the whole varicalla dataset}
+\item{varic_df}{the whole varicella dataset}
 }
 \value{
 a \link[tibble:tibble-package]{tibble}
 }
 \description{
-Create a version of the gold stadnard with the first date in which
+Create a version of the gold standard with the first date in which
 a patient became positive to Zoster
 }
 \examples{

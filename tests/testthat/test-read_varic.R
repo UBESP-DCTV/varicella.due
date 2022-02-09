@@ -1,5 +1,6 @@
 test_that("read_varic works", {
-  skip("Provato una volta, test lungo, rieseguire prima dell'addestramento finale")
+  skip_if(basename(here::here()) != "varicella.due")
+
   # setup
   raw_popolazione <- tar_read_if_valid("rawPopolazione")
   raw_gold <- tar_read_if_valid("rawGold")

@@ -25,7 +25,7 @@ list(
     file.path(get_data_path(), "positive_gold.rdS"),
     format = "file"
   ),
-  tar_target(gold, read_varic(rawGold, "positive_gold")),
+  tar_target(globalGold, read_varic(rawGold, "positive_gold")),
 
   tar_target(
     rawDf,
@@ -35,8 +35,13 @@ list(
   tar_target(varic_df, read_varic(rawDf, "varic_df")),
 
   tar_target(
-    goldWithFirstDate,
-    eval_dates_for_gold(gold, varic_df)
+    goldDate,
+    eval_dates_for_gold(globalGold, varic_df)
+  ),
+
+  tar_target(
+    gold,
+    expand_prepost_positive(goldDate)
   ),
 
 
