@@ -39,7 +39,8 @@ Suggests:
     targets (>= 0.9.0.9000),
     testthat (>= 3.0.0),
     usethis,
-    withr
+    withr,
+    visNetwork
 Remotes: 
     CorradoLanera/autotestthat,
     ropensci/tarchetypes,
