@@ -54,12 +54,20 @@ list(
       dplyr::left_join(gold)
   ),
 
-  # #
-  # tar_target(
-  #   mixdb_list,
-  #   dplyr::left_join(varic_df, gold) |>
-  #     create_varicella_mixdb()
-  # ),
+  tar_target(
+    example,
+    varicella |>
+      dplyr::filter(.data[["anno"]] <= 2007) |>
+      dplyr::mutate(
+        set = dplyr::if_else(.data[["anno"]] < 2005, "train", "validation")
+      )
+  ),
+
+  #
+  tar_target(
+    mixdb,
+    create_varicella_mixdb(example)
+  ),
 
 
   # compile the report

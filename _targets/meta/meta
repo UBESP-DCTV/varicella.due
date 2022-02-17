@@ -4,11 +4,14 @@ goldWithFirstDate|stem|495863281ef4ac38|87951fc9207d3dec|dbe48b20fdc879b2|-18908
 rawDf|stem|e976b1649c696410|2aa98dc6e21cc4b1|863033f7b92f9b85|-1270033824|~/GitHub-UBEP/varicella.due/data-raw//varic_df.rds|t19040.21875s|17c4150d870872a8|555762475|file|vector|||0.001||
 rawPopolazione|stem|f901586d81526d4f|4df1561d6daca632|863033f7b92f9b85|-725040042|~/GitHub-UBEP/varicella.due/data-raw//popolazione.rds|t19040.21875s|9c08b9b6e03c5fca|6878266|file|vector|||0.001||
 rawGold|stem|aec870bf4b0014ca|f992b6aae894903c|863033f7b92f9b85|-694592328|~/GitHub-UBEP/varicella.due/data-raw/positive_gold.rds|t19040.21875s|5daf492b73fef624|119880|file|vector|||0.001||
-mixdb|stem||52ae594ce1fa7bbe|b5ba33a1cfe6c36f|1620133534||t19040.5836495493s||0|rds|vector|||0.009||could not find function
 varic_df|stem|b1f3a96426acbd81|54f04991b2ed2e74|dd8ffbbed21ee4de|-541543958||t19040.6206337712s|50913c466fc7e06d|65293183|rds|vector|||4.968||
 popolazione|stem|b8d49b509acd5a60|84588d5e6ecfb7bc|5af37ad84e140ed9|1106300200||t19040.6206364564s|3cfc25882ac08433|417103|rds|vector|||0.058||
 globalGold|stem|76938f1c725435c5|cf3dbce01b8d6ac8|a86714a2607ee3ab|-518652059||t19040.6206365952s|80be031682ca4141|13460|rds|vector|||0.005||
 goldDate|stem|afa7d61b93618b49|eb79df1ecbec7e9b|3d2b3c58f1cb28bb|409528534||t19040.6646374537s|8b29b11be6f32669|11961|rds|vector|||2.272||
+merge_and_complete|function|4f8a8df6e67891ac||||||||||||||
+gold|stem|2b3b77511f70e33e|62d52a47bd595348|657be829ea440ee3|1293082345||t19040.7206236547s|3e4beb4ad68d3457|84830|rds|vector|||0.162||
+report|stem|3de338f9f83c19df|62d72de7f427e622|eb9c0514200a9386|-237041703|reports/report.html*reports/report.Rmd|t19040.7206267565s|b2f3fcf0f264d287|624354|file|vector|||0.286||
+varicella|stem|13a695607d74f89c|30afa3fe2e84d138|f8ac84a13530c4e5|-1866151970||t19040.720905642s|4e164f2b55204fe2|69379728|rds|vector|||1.969||
 get_data_path|function|e10817345f3a05a9||||||||||||||
 read_gold|function|9df40b2f32d9bc17||||||||||||||
 read_popolazione|function|9df40b2f32d9bc17||||||||||||||
@@ -16,9 +19,16 @@ read_varic_df|function|9df40b2f32d9bc17||||||||||||||
 "%||%"|function|4b3247e2990f1656||||||||||||||
 eval_dates_for_gold|function|5428362834073137||||||||||||||
 expand_prepost_positive|function|ed387079c09dfda9||||||||||||||
-merge_and_complete|function|4f8a8df6e67891ac||||||||||||||
-create_varicella_mixdb|function|3d69d979e63ec8e6||||||||||||||
+create_varicella_mixdb|function|b47e3ddbab2116dc||||||||||||||
 read_varic|function|6eaf228d2f4cc40b||||||||||||||
-gold|stem|2b3b77511f70e33e|62d52a47bd595348|657be829ea440ee3|1293082345||t19040.7206236547s|3e4beb4ad68d3457|84830|rds|vector|||0.162||
-report|stem|3de338f9f83c19df|62d72de7f427e622|eb9c0514200a9386|-237041703|reports/report.html*reports/report.Rmd|t19040.7206267565s|b2f3fcf0f264d287|624354|file|vector|||0.286||
-varicella|stem|13a695607d74f89c|30afa3fe2e84d138|f8ac84a13530c4e5|-1866151970||t19040.720905642s|4e164f2b55204fe2|69379728|rds|vector|||1.969||
+example|stem|caa3ac568be18b57|f035a151c45505de|4efb593feb59f6cd|822529522||t19040.915021007s|7aff0b1df0394070|11863026|rds|vector|||0.419||
+mixdb|stem||e208d6b158c62921|f9c88ac6ebf0d462|1620133534||t19040.5836495493s||0|rds|vector|||0.008||argument gold is missing, with no default
+create_varicella_mixdb|function|dca3832dbb638e8a
+read_gold|function|9df40b2f32d9bc17
+read_popolazione|function|9df40b2f32d9bc17
+read_varic_df|function|9df40b2f32d9bc17
+"%||%"|function|4b3247e2990f1656
+eval_dates_for_gold|function|5428362834073137
+expand_prepost_positive|function|ed387079c09dfda9
+get_data_path|function|e10817345f3a05a9
+read_varic|function|6eaf228d2f4cc40b
