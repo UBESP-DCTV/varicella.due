@@ -12,8 +12,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 ```{r}
-my_result <- targets::tar_read("ciao")
+gold_standard <- targets::tar_read(gold)
 
-my_result
+gold_standard
 ```
 

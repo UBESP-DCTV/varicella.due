@@ -15,13 +15,19 @@ License: file LICENSE
 Depends: 
     R (>= 2.10)
 Imports: 
-    rlang (>= 0.4.11),
-    readr,
-    tibble,
+    furrr,
     dplyr,
-    stringr,
     lubridate,
-    tidyr
+    readr,
+    rlang (>= 0.4.11),
+    stringr,
+    tibble,
+    tidyr,
+    keras,
+    depigner,
+    limpido (>= 0.1.1),
+    janitor,
+    forcats
 Suggests: 
     autotestthat (>= 0.1.1),
     checkmate,
@@ -30,21 +36,22 @@ Suggests:
     gitcreds,
     here,
     lintr,
-    roxygen2,
     markdown,
     miniUI,
     purrr,
+    roxygen2,
     spelling,
     tarchetypes (>= 0.3.2.9000),
     targets (>= 0.9.0.9000),
     testthat (>= 3.0.0),
     usethis,
-    withr,
-    visNetwork
+    visNetwork,
+    withr
 Remotes: 
     CorradoLanera/autotestthat,
     ropensci/tarchetypes,
-    ropensci/targets
+    ropensci/targets,
+    UBESP-DCTV/limpido
 Config/testthat/edition: 3
 Encoding: UTF-8
 Language: en-US

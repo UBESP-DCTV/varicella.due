@@ -8,6 +8,9 @@ list.files(here("R"), pattern = "\\.R$", full.names = TRUE) |>
   lapply(source) |> invisible()
 
 
+tar_option_set(
+  error = "abridge"
+)
 
 # End this file with a list of target objects.
 list(
@@ -22,7 +25,7 @@ list(
 
   tar_target(
     rawGold,
-    file.path(get_data_path(), "positive_gold.rdS"),
+    file.path(get_data_path(), "positive_gold.rds"),
     format = "file"
   ),
   tar_target(globalGold, read_varic(rawGold, "positive_gold")),
@@ -41,9 +44,22 @@ list(
 
   tar_target(
     gold,
-    expand_prepost_positive(goldDate)
+    expand_prepost_positive(goldDate, popolazione)
   ),
 
+  tar_target(
+    varicella,
+    varic_df |>
+      dplyr::left_join(popolazione) |>
+      dplyr::left_join(gold)
+  ),
+
+  # #
+  # tar_target(
+  #   mixdb_list,
+  #   dplyr::left_join(varic_df, gold) |>
+  #     create_varicella_mixdb()
+  # ),
 
 
   # compile the report

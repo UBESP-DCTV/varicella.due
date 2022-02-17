@@ -20,8 +20,21 @@ popolazione <- tar_read(popolazione)
 varic_df <- tar_read(varic_df)
 gold_date <- tar_read(goldDate)
 gold <- tar_read(gold)
+varicella <- tar_read(varicella)
 
 
 
 
-gold
+anno <- 2008
+varicella |>
+  dplyr::filter(
+    .data[["anno"]] < .env[["anno"]]
+  ) |>
+  pull(anno) |>
+  table() |>
+  stop("start from here", call. = FALSE)
+
+
+
+
+varicella$class |> table()

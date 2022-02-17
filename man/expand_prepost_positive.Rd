@@ -4,33 +4,42 @@
 \alias{expand_prepost_positive}
 \title{Expand previous and post positive status}
 \usage{
-expand_prepost_positive(db)
+expand_prepost_positive(db_gold, pop)
 }
 \arguments{
-\item{db}{(data frame) positive database with \code{Id_Medico}, \code{nPaz},
-and \code{Data} as the minimum set of columns. Column \code{Data} reporting the
+\item{db_gold}{(data frame) positive database with \code{id_medico}, \code{n_paz},
+and \code{data} as the minimum set of columns. Column \code{data} reporting the
 year of the Varicella infection for the corresponding patient.}
+
+\item{pop}{(data frame) database with all population IDs stored in a
+\code{n_paz} variable with corresponding \code{id_medico} for each one.}
 }
 \value{
 the original \link[tibble:tibble-package]{tibble} with the
-\code{is_was_positive} column added as last one.
+\code{class} column added as last one.
 }
 \description{
-Given a dataset with columns \code{Id_Medico}, \code{nPaz}, and \code{Data}
+Given a dataset with columns \code{id_medico}, \code{n_paz}, and \code{data}
 (the latter referred to the year of Varicella infection), it adds
-rows for each combination of \code{Id_Medico} and \code{nPaz} reporting the
+rows for each combination of \code{id_medico} and \code{n_paz} reporting the
 status of "they was infected" for all the years from 2004 to 2014
-in a column named \code{is_was_positive}
+in a column named \code{class}
 }
 \examples{
-db <- tibble::tribble(
-  ~ Id_Medico, ~nPaz, ~Data, ~other, ~anno,
-  1, 1, lubridate::ymd("2005-12-31"), "foo", 2005L,
-  2, 1, lubridate::ymd("2005-12-31"), "foo", 2005L,
-  1, 2, lubridate::ymd("2008-12-31"), "foo", 2008L,
-  3, 3, lubridate::ymd("2007-12-31"), "foo", 2007L
+db_gold <- tibble::tribble(
+  ~ id_medico, ~n_paz, ~anno, ~class,
+  1, 1, 2005L, "is_was_positive",
+  2, 1, 2005L, "is_was_positive",
+  1, 2, 2008L, "is_was_positive",
+  3, 3, 2007L, "is_was_positive"
 )
 
-expand_prepost_positive(db)
+pop <- data.frame(
+  id_medico = c(1, 2, 1, 3, 3),
+  n_paz = c(1, 1, 2, 3, 4),
+  foo = "bar"
+)
+
+expand_prepost_positive(db, pop)
 
 }

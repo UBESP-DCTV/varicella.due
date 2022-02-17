@@ -1,40 +1,54 @@
 #' Expand previous and post positive status
 #'
-#' Given a dataset with columns `Id_Medico`, `nPaz`, and `Data`
+#' Given a dataset with columns `id_medico`, `n_paz`, and `data`
 #' (the latter referred to the year of Varicella infection), it adds
-#' rows for each combination of `Id_Medico` and `nPaz` reporting the
+#' rows for each combination of `id_medico` and `n_paz` reporting the
 #' status of "they was infected" for all the years from 2004 to 2014
-#' in a column named `is_was_positive`
+#' in a column named `class`
 #'
-#' @param db (data frame) positive database with `Id_Medico`, `nPaz`,
-#' and `Data` as the minimum set of columns. Column `Data` reporting the
+#' @param db_gold (data frame) positive database with `id_medico`, `n_paz`,
+#' and `data` as the minimum set of columns. Column `data` reporting the
 #' year of the Varicella infection for the corresponding patient.
+#' @param pop (data frame) database with all population IDs stored in a
+#'  `n_paz` variable with corresponding `id_medico` for each one.
 #'
 #' @return the original [tibble][tibble::tibble-package] with the
-#' `is_was_positive` column added as last one.
+#' `class` column added as last one.
 #' @export
 #'
 #' @examples
-#' db <- tibble::tribble(
-#'   ~ Id_Medico, ~nPaz, ~Data, ~other, ~anno,
-#'   1, 1, lubridate::ymd("2005-12-31"), "foo", 2005L,
-#'   2, 1, lubridate::ymd("2005-12-31"), "foo", 2005L,
-#'   1, 2, lubridate::ymd("2008-12-31"), "foo", 2008L,
-#'   3, 3, lubridate::ymd("2007-12-31"), "foo", 2007L
+#' db_gold <- tibble::tribble(
+#'   ~ id_medico, ~n_paz, ~anno, ~class,
+#'   1, 1, 2005L, "is_was_positive",
+#'   2, 1, 2005L, "is_was_positive",
+#'   1, 2, 2008L, "is_was_positive",
+#'   3, 3, 2007L, "is_was_positive"
 #' )
 #'
-#' expand_prepost_positive(db)
+#' pop <- data.frame(
+#'   id_medico = c(1, 2, 1, 3, 3),
+#'   n_paz = c(1, 1, 2, 3, 4),
+#'   foo = "bar"
+#' )
 #'
-expand_prepost_positive <- function(db) {
-  wide <- db |>
-    dplyr::mutate(
-      is_was_positive = TRUE
-    ) |>
+#' expand_prepost_positive(db_gold, pop)
+#'
+expand_prepost_positive <- function(db_gold, pop) {
+
+  pop <- pop |>
+    dplyr::select(dplyr::any_of(names(db_gold)))
+
+  wide <- db_gold |>
     tidyr::pivot_wider(
-      ## WARNING: <= TRUE should be TRUE but is FASLE
       names_from = .data[["anno"]],
-      values_from = .data[["is_was_positive"]],
-      values_fill = FALSE
+      values_from = .data[["class"]],
+      values_fill = "negative"
+    ) |>
+    dplyr::bind_rows(pop) |>
+    dplyr::mutate(
+      dplyr::across(dplyr::matches("^\\d{4}$"), ~{
+        dplyr::if_else(is.na(.x), "negative", .x)
+      })
     )
 
   missing_years <- wide |>
@@ -43,25 +57,25 @@ expand_prepost_positive <- function(db) {
     setdiff(x = as.character(2004:2014))
 
   wide_compelte <- wide
-  wide_compelte[missing_years] <- FALSE
+  wide_compelte[missing_years] <- "negative"
 
   wide_compelte |>
     tidyr::pivot_longer(
       dplyr::matches("^\\d{4}$"),
       names_to = "anno",
       values_to = "is_first_positive",
-      values_ptypes = integer()
+      values_ptypes = character()
     ) |>
-    dplyr::group_by(.data[["Id_Medico"]], .data[["nPaz"]]) |>
-    dplyr::mutate(anno = as.integer(.data[["anno"]])) |>
-    dplyr::arrange(.data[["anno"]]) |>
     dplyr::mutate(
-      is_was_positive = cumsum(.data[["is_first_positive"]]) |>
-        as.logical()
+      class = .data[["is_first_positive"]] |>
+        factor(
+          levels = c("negative", "is_was_positive"),
+          labels = c("negative", "positive")
+        ),
+      anno = as.integer(.data[["anno"]])
     ) |>
-    dplyr::ungroup() |>
     dplyr::select(-.data[["is_first_positive"]]) |>
     dplyr::arrange(
-      .data[["nPaz"]], .data[["Id_Medico"]], .data[["anno"]]
+      .data[["n_paz"]], .data[["id_medico"]], .data[["anno"]]
     )
 }

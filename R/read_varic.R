@@ -37,11 +37,18 @@ read_varic <- function(
 
 
 read_popolazione <- function(path) {
-  readr::read_rds(path)
+  readr::read_rds(path) |>
+    janitor::clean_names() |>
+    dplyr::distinct()
+
 }
 read_gold <- function(path) {
-  readr::read_rds(path)
+  readr::read_rds(path) |>
+    janitor::clean_names() |>
+    dplyr::distinct()
 }
 read_varic_df <- function(path) {
-  readr::read_rds(path)
+  readr::read_rds(path) |>
+    janitor::clean_names() |>
+    dplyr::distinct()
 }

@@ -6,11 +6,25 @@ targets::tar_script()
 # packages --------------------------------------------------------
 
 prj_pkgs <- c(
-  "tibble", "readr", "dplyr", "stringr", "lubridate", "tidyr"
+  "tibble", "readr", "dplyr", "stringr", "lubridate", "tidyr", "furrr",
+  "keras", "depigner", "janitor", "forcats"
 )
 renv::install(prj_pkgs)
 prj_pkgs |>
   purrr::walk(usethis::use_package)
+
+
+gh_dev_pkgs <- c(
+  "UBESP-DCTV/limpido"
+)
+renv::install(gh_dev_pkgs)
+
+purrr::walk(gh_dev_pkgs, ~{
+  package_name <- stringr::str_extract(.x, "[\\w\\.]+$")
+  package_name |>
+    usethis::use_dev_package(remote = .x)
+})
+
 
 renv::status()
 renv::snapshot()
@@ -37,6 +51,10 @@ usethis::use_r("eval_dates_for_gold")
 
 usethis::use_test("expand_prepost_positive")
 usethis::use_r("expand_prepost_positive")
+
+basename(usethis::use_test("merge_and_complete")) |>
+  usethis::use_r()
+
 
 # Dev cycle -------------------------------------------------------
 

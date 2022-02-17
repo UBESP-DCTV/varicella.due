@@ -8,10 +8,9 @@ if (basename(here::here()) == "varicella.due") {
     setdiff(targets::tar_outdated(targets_only = TRUE))
 
   tar_read_if_valid <- function(name) {
-    if (name %in% .tar_updated) {
-      return(targets::tar_read_raw(name))
+    if (!name %in% .tar_updated) {
+      usethis::ui_warn("target {name} is outdated, beware of results.")
     }
-    usethis::ui_warn("target {name} is outdated, it won't be loaded.")
-    invisible(NULL)
+    targets::tar_read_raw(name)
   }
 }

@@ -24,27 +24,33 @@ eval_dates_for_gold <- function(gold, varic_df) {
   pattern <- "([vV][aA][rR][iI][cC])|052"
 
   varic_df |>
-    dplyr::distinct() |>
-    dplyr::filter(.data[["nPaz"]] %in% gold[["nPaz"]]) |>
+    dplyr::filter(.data[["n_paz"]] %in% gold[["n_paz"]]) |>
     dplyr::filter(
-      stringr::str_detect(.data[["MotivoAccesso"]], pattern) |
-        stringr::str_detect(.data[["MotivoAccesso2"]], pattern) |
-        stringr::str_detect(.data[["MotivoAccesso3"]], pattern) |
-        stringr::str_detect(.data[["Diagnosi_Ped"]], pattern) |
-        stringr::str_detect(.data[["Diario"]], pattern) |
-        stringr::str_detect(.data[["Diagnosi_Ricovero"]], pattern) |
-        stringr::str_detect(.data[["Testo_Soap"]], pattern) |
-        stringr::str_detect(.data[["Diagnosi_Spec"]], pattern)
+      stringr::str_detect(.data[["motivo_accesso"]], pattern) |
+        stringr::str_detect(.data[["motivo_accesso2"]], pattern) |
+        stringr::str_detect(.data[["motivo_accesso3"]], pattern) |
+        stringr::str_detect(.data[["diagnosi_ped"]], pattern) |
+        stringr::str_detect(.data[["diario"]], pattern) |
+        stringr::str_detect(.data[["diagnosi_ricovero"]], pattern) |
+        stringr::str_detect(.data[["testo_soap"]], pattern) |
+        stringr::str_detect(.data[["diagnosi_spec"]], pattern)
     ) |>
-    dplyr::group_by(.data[["nPaz"]], .data[["Id_Medico"]]) |>
-    dplyr::filter(.data[["Data"]] == min(.data[["Data"]])) |>
+    dplyr::group_by(.data[["n_paz"]], .data[["id_medico"]]) |>
+    dplyr::filter(.data[["data"]] == min(.data[["data"]])) |>
     dplyr::ungroup() |>
     dplyr::distinct(
-      .data[["Id_Medico"]], .data[["nPaz"]], .data[["Data"]],
+      .data[["id_medico"]], .data[["n_paz"]], .data[["data"]],
       .keep_all = TRUE
     ) |>
     dplyr::inner_join(
       gold |>
-        dplyr::distinct(.data[["Id_Medico"]], .data[["nPaz"]])
+        dplyr::distinct(.data[["id_medico"]], .data[["n_paz"]]),
+      by = c("id_medico", "n_paz")
+    ) |>
+    dplyr::select(
+      .data[["id_medico"]], .data[["n_paz"]], .data[["anno"]]
+    ) |>
+    dplyr::mutate(
+      class = "is_was_positive"
     )
 }
