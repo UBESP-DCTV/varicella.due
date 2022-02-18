@@ -17,16 +17,15 @@ list.files(here("R"), pattern = "\\.R$", full.names = TRUE) |>
 
 # Code here below -------------------------------------------------
 
-popolazione <- tar_read(popolazione)
 varic_df <- tar_read(varic_df)
-gold_date <- tar_read(goldDate)
+popolazione <- tar_read(popolazione)
 gold <- tar_read(gold)
+
 varicella <- tar_read(varicella)
 example <- tar_read(example)
-prepared_for_mixing <- tar_read(prepared_for_mixing)
+ready2mix <- tar_read(ready2mix)
 mixdb <- tar_read(mixdb)
 
-gold_varicella <- prepared_for_mixing
 
 meta_vars <- c("id_medico", "data", "data_n", "sesso", "data_invio",
                "vari_gold", "user_id", "inizio_assistenza", "fine_assistenza",
@@ -34,12 +33,16 @@ meta_vars <- c("id_medico", "data", "data_n", "sesso", "data_invio",
                "max_of_data", "giorni")
 
 
-example
-
-prepared_for_mixing
-
-str(mixdb[[1]], 1)
+str(mixdb, 1)
 
 attr(mixdb, "meta")[1, c("set", "id_medico", "n_paz", "anno", "notes")]
+
 mixdb[["x"]][[1]]
+mixdb[["x"]][[1]] |>
+  names()
+
+
+res <- compose_trvaltest_up_to_year(varicella, 2005)
+res <- create_varicella_mixdb(ready2mix)
+res <- merge_text_meta_records(example, meta_vars())
 

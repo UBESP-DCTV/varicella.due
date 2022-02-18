@@ -27,7 +27,16 @@ Imports:
     depigner,
     limpido (>= 0.1.1),
     janitor,
-    forcats
+    forcats,
+    future,
+    future.callr,
+    future.batchtools,
+    bs4Dash,
+    DT,
+    gt,
+    pingr,
+    shinybusy,
+    shinyWidgets
 Suggests: 
     autotestthat (>= 0.1.1),
     checkmate,

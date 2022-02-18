@@ -7,7 +7,9 @@ targets::tar_script()
 
 prj_pkgs <- c(
   "tibble", "readr", "dplyr", "stringr", "lubridate", "tidyr", "furrr",
-  "keras", "depigner", "janitor", "forcats"
+  "keras", "depigner", "janitor", "forcats", "future", "future.callr",
+  "future.batchtools", "bs4Dash", "DT", "gt", "pingr", "shinybusy",
+  "shinyWidgets"
 )
 renv::install(prj_pkgs)
 prj_pkgs |>
@@ -56,6 +58,15 @@ basename(usethis::use_test("merge_records")) |>
   usethis::use_r()
 
 basename(usethis::use_test("merge_id_records")) |>
+  usethis::use_r()
+
+basename(usethis::use_test("compose_trvaltest_up_to_year")) |>
+  usethis::use_r()
+
+basename(usethis::use_test("create_varicella")) |>
+  usethis::use_r()
+
+basename(usethis::use_test("meta_vars")) |>
   usethis::use_r()
 
 

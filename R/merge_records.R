@@ -37,29 +37,19 @@ merge_records <- function(db, meta_vars) {
 
   meta <- dplyr::intersect(meta_vars, names(db))
 
+  # Separated process because C stack usage too close to the limit
   db |>
     dplyr::arrange(.data[["date"]]) |>
     dplyr::mutate(
-      dplyr::across(-dplyr::all_of(meta), ~{
-        .x |>
-          tidyr::replace_na("__NA__") |>
-          stringr::str_split("\\s+") |>
-          purrr::map(add_endoffield)
-      })
+      dplyr::across(-dplyr::all_of(meta), stringr::str_to_lower),
+      dplyr::across(-dplyr::all_of(meta), tidyr::replace_na, "__NA__")
     ) |>
-    dplyr::rowwise() |>
+    tidyr::unite(notes, -dplyr::all_of(meta), sep = " __EOF__ ") |>
     dplyr::mutate(
-      notes = list(dplyr::c_across(-dplyr::all_of(meta))) |>
-        purrr::map(add_endofrecord),
-      .keep = "unused"
+      notes = purrr::map_chr(.data[["notes"]], add_endofrecord)
     ) |>
-    dplyr::ungroup() |>
     dplyr::summarise(
       dplyr::across(dplyr::all_of(meta), list),
-      dplyr::across(notes, ~{
-        .x |>
-          purrr::map_chr(paste, collapse = " ") |>
-          purrr::reduce(paste, collapse = " ")
-      })
+      notes = paste(.data[["notes"]], collapse = " ")
     )
 }

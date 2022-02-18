@@ -15,10 +15,9 @@ create_varicella_mixdb <- function(gold_varicella) {
 
   gold_varicella |>
     dplyr::mutate(
-      dplyr::across(notes, stringr::str_to_lower),
-      dplyr::across(notes, tidyr::replace_na, "__NA__"),
-      dplyr::across(notes, limpido::code_num),
-      dplyr::across(notes, limpido::expand_punctuations),
+      notes = .data[["notes"]] |>
+        limpido::code_num() |>
+        limpido::expand_punctuations()
     ) |>
     limpido::mixdb(limpido::meta_vars(
       set, id_medico, n_paz, date, data_n, sesso, data_invio,
