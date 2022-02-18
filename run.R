@@ -1,7 +1,7 @@
 {
   function(proceed = TRUE, save_all = TRUE) {
     if (interactive()) {
-      if (requireNamespace("rstudioapi") && save_all) {
+      if (requireNamespace("rstudioapi") && rstudioapi::isAvailable() && save_all) {
         rstudioapi::documentSaveAll()
       }
       targets::tar_visnetwork() |>

@@ -15,13 +15,13 @@ test_that("eval_dates_for_gold works", {
   )
   expect_equal(  # vogliamo record unici
     gold_with_dates,
-    dplyr::distinct(gold_with_dates, n_paz, id_medico, .keep_all = TRUE)
+    dplyr::distinct(gold_with_dates, n_paz, .keep_all = TRUE)
   )
-  expect_equal(c("id_medico", "n_paz", "anno", "class"), names(gold_with_dates))
+  expect_equal(c("n_paz", "anno", "class"), names(gold_with_dates))
 
   expect_equal(
-    nrow(dplyr::distinct(global_gold, n_paz, id_medico)),
-    nrow(dplyr::distinct(gold_with_dates, n_paz, id_medico))
+    nrow(dplyr::distinct(global_gold, n_paz)),
+    nrow(dplyr::distinct(gold_with_dates, n_paz))
   )
 
 })

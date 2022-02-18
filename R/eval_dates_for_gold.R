@@ -35,22 +35,16 @@ eval_dates_for_gold <- function(gold, varic_df) {
         stringr::str_detect(.data[["testo_soap"]], pattern) |
         stringr::str_detect(.data[["diagnosi_spec"]], pattern)
     ) |>
-    dplyr::group_by(.data[["n_paz"]], .data[["id_medico"]]) |>
-    dplyr::filter(.data[["data"]] == min(.data[["data"]])) |>
+    dplyr::group_by(.data[["n_paz"]]) |>
+    dplyr::filter(.data[["date"]] == min(.data[["date"]])) |>
     dplyr::ungroup() |>
     dplyr::distinct(
-      .data[["id_medico"]], .data[["n_paz"]], .data[["data"]],
-      .keep_all = TRUE
+      .data[["n_paz"]], .data[["date"]], .keep_all = TRUE
     ) |>
     dplyr::inner_join(
-      gold |>
-        dplyr::distinct(.data[["id_medico"]], .data[["n_paz"]]),
-      by = c("id_medico", "n_paz")
+      dplyr::distinct(gold, .data[["n_paz"]]),
+      by = "n_paz"
     ) |>
-    dplyr::select(
-      .data[["id_medico"]], .data[["n_paz"]], .data[["anno"]]
-    ) |>
-    dplyr::mutate(
-      class = "is_was_positive"
-    )
+    dplyr::select(.data[["n_paz"]], .data[["anno"]]) |>
+    dplyr::mutate(class = "positive")
 }

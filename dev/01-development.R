@@ -52,7 +52,10 @@ usethis::use_r("eval_dates_for_gold")
 usethis::use_test("expand_prepost_positive")
 usethis::use_r("expand_prepost_positive")
 
-basename(usethis::use_test("merge_and_complete")) |>
+basename(usethis::use_test("merge_records")) |>
+  usethis::use_r()
+
+basename(usethis::use_test("merge_id_records")) |>
   usethis::use_r()
 
 

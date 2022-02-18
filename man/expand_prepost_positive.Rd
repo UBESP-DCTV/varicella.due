@@ -27,11 +27,10 @@ in a column named \code{class}
 }
 \examples{
 db_gold <- tibble::tribble(
-  ~ id_medico, ~n_paz, ~anno, ~class,
-  1, 1, 2005L, "is_was_positive",
-  2, 1, 2005L, "is_was_positive",
-  1, 2, 2008L, "is_was_positive",
-  3, 3, 2007L, "is_was_positive"
+  ~n_paz, ~anno, ~class,
+  1, 2005L, "positive",
+  2, 2008L, "positive",
+  3, 2007L, "positive"
 )
 
 pop <- data.frame(
@@ -40,6 +39,6 @@ pop <- data.frame(
   foo = "bar"
 )
 
-expand_prepost_positive(db, pop)
+expand_prepost_positive(db_gold, pop)
 
 }

@@ -6,3 +6,9 @@
     x
   }
 }
+
+
+add_endoffield <- function(x) c(x, "__EOF__")
+
+
+add_endofrecord <- function(x) c(x, "__EOR__")
