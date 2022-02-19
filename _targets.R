@@ -11,7 +11,11 @@ list.files(here::here("R"), pattern = "\\.R$", full.names = TRUE) |>
 
 tar_option_set(
   error = "abridge",
-  packages = c("purrr", "here", "future")
+  packages = c("purrr", "here", "future"),
+  format = "qs",
+  resources = tar_resources(
+    qs = tar_resources_qs(preset = "fast")
+  )
 )
 
 # End this file with a list of target objects.
@@ -52,25 +56,52 @@ list(
     iteration = "list"
   ),
 
+  tar_target(corpusDictionary, limpido::get_dictionary(mixdbs),
+             pattern = map(mixdbs),
+             iteration = "list" ),
+
+
+  tar_target(corpusDicSize, length(corpusDictionary),
+             pattern = map(corpusDictionary),
+             iteration = "list"),
+
+  tar_target(corpusSets, attr(mixdbs, "meta")$set,
+             pattern = map(mixdbs),
+             iteration = "list"),
+
   tar_target(
     maxWords,
     min(
-      length(limpido:::get_dictionary(mixdbs)),
-      122607L # all words in the pretrained
+      corpusDicSize,
+      122607L # all words in the pretrained in pedianed
     ),
-    pattern = map(mixdbs),
+    pattern = map(corpusDicSize),
     iteration = "list"
   ),
 
-  tar_target(embeddingDim, "300"), # or "100"
-  tar_target(fasttextPretrained, {
-    pretrained_path <- embeddingDim |>
-      switch(
-        "100" = file.path(get_data_path(), "model_100.vec"),
-        "300" = file.path(get_data_path(), "model_300.vec")
-      )
-    readr::read_lines(pretrained_path, skip = 1L)
-  }),
+  tar_target(maxLen, 4000L),
+
+  tar_target(embeddingDim, "300"),
+
+  tar_target(rawFT300, file.path(get_data_path(), "model_300.vec"),
+             format = "file"),
+  tar_target(fasttextPretrained300,
+             readr::read_lines(rawFT300, skip = 1L)),
+
+  tar_target(rawFT100, file.path(get_data_path(), "model_100.vec"),
+             format = "file"),
+  tar_target(fasttextPretrained100,
+             readr::read_lines(rawFT100, skip = 1L)),
+
+
+  tar_target(fasttextPretrained,
+    switch(embeddingDim,
+      "100" = fasttextPretrained100,
+      "300" = fasttextPretrained300
+    )
+  ),
+
+
 
   tar_target(
     embeddingMatrix,
@@ -82,15 +113,42 @@ list(
   ),
 
   tar_target(
-    setupInputData,
-    setup_input_data(
-      mixdb = mixdbs,
-      embedding_matrix = embeddingMatrix,
-      fasttext_pretrained = fasttextPretrained,
-      max_words = maxWords,
-      embedding_dim = embeddingDim
+    currentTrainvalIndeces,
+    compute_trainval_indeces(
+      corpusSets, validation_len = 200L, is_test = FALSE
     ),
-    pattern = map(mixdbs, maxWords, embeddingMatrix),
+    pattern = map(corpusSets),
+    iteration = "list"
+  ),
+
+  tar_target(
+    currentTrain,
+    compute_training(
+      mixdbs, maxWords, currentTrainvalIndeces, maxlen = maxLen
+    ),
+    pattern = map(mixdbs, maxWords, currentTrainvalIndeces),
+    iteration = "list"
+  ),
+
+  tar_target(
+    currentValidation,
+    compute_validation(
+      mixdbs, maxWords, currentTrainvalIndeces, maxlen = maxLen
+    ),
+    pattern = map(mixdbs, maxWords, currentTrainvalIndeces),
+    iteration = "list"
+  ),
+
+  tar_target(currentParameters,
+    get_current_parameter(
+      max_words = maxWords, # this will updated after OOV
+      batch_size = 8L,
+      epochs = 15L,
+      loss      = "categorical_crossentropy",
+      metrics   = "categorical_accuracy",
+      optimizer = "adam"
+    ),
+    pattern = map(maxWords),
     iteration = "list"
   ),
 

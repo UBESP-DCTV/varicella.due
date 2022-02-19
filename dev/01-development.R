@@ -73,6 +73,19 @@ basename(usethis::use_test("setup_input_data")) |>
   usethis::use_r()
 
 
+basename(usethis::use_test("compute_trainval_indeces")) |>
+  usethis::use_r()
+
+basename(usethis::use_test("compute_training")) |>
+  usethis::use_r()
+
+basename(usethis::use_test("compute_validation")) |>
+  usethis::use_r()
+basename(usethis::use_test("get_current_parameter")) |>
+  usethis::use_r()
+
+
+
 # Dev cycle -------------------------------------------------------
 
 spelling::spell_check_package()
