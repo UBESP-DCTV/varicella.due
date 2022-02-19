@@ -6,15 +6,24 @@ ciao|stem|4a74c53de24a35aa|2a2cf7e632cc6f0b|fdcdf23f9eace6e0|-256703320||t19030.
 compose_trvaltest_up_to_year|function|e4cb4ce6ee670eb5||||||||||||||
 create_varicella|function|dbf431c5f7243db9||||||||||||||
 create_varicella_mixdb|function|80d03115c121fc44||||||||||||||
+embeddingDim|stem|f9475b618555f7a0|ca746af72f1faefe|ef46db3751d8e999|1184446380||t19042.1297239424s|9064907978062c20|56|rds|vector|||0.018||
+embeddingMatrix|pattern|a7d817f5ad1052e2|f289aca23eea5a03||491063311||||179175855|rds|list||embeddingMatrix_a3d327d4*embeddingMatrix_20c566dc|56.7||
+embeddingMatrix_20c566dc|branch|42df4e981e2d0050|f289aca23eea5a03|75dba43ff82543e1|-1762688463||t19042.1443591631s|afa432c4b1391a98|110715528|rds|list|embeddingMatrix||31.725||
+embeddingMatrix_a3d327d4|branch|7721756928953f97|f289aca23eea5a03|145dc038374df93b|-255036072||t19042.1388192837s|b943aa076414dccc|68460327|rds|list|embeddingMatrix||24.975||
+empbeddingDim|stem|f9475b618555f7a0|ca746af72f1faefe|ef46db3751d8e999|1295372731||t19041.9189520868s|9064907978062c20|56|rds|vector|||0.019||
 eval_dates_for_gold|function|a77073db5d721463||||||||||||||
 example|stem|0c7bfadbf7121535|bd7ae83b8fa573ec|1e1a8b0a6b21d804|822529522||t19041.736728656s|93d3ce5d337610ed|222098|rds|vector|||5.102||
 expand_prepost_positive|function|fcbe68865fae7cce||||||||||||||
+fasttextPretrained|stem|cb27dbf53073f755|d211af8531becd6c|9901847903fbd3f1|1339509194||t19042.130475276s|a0bdb7dec168b5c2|121287011|rds|vector|||1.368|One or more parsing issues, see problems for details|
 get_data_path|function|e10817345f3a05a9||||||||||||||
 globalGold|stem|76938f1c725435c5|cf3dbce01b8d6ac8|672cabe2d19b0138|-518652059||t19041.488861661s|80be031682ca4141|13460|rds|vector|||0.006||
 gold|stem|7ce246d954db1f8b|62d52a47bd595348|c655fbc45cfcf6cb|1293082345||t19041.2839961265s|bed96b8f1bb45fa6|20879|rds|vector|||0.08||
 goldDate|stem|045d4aa9aacd24d0|eb79df1ecbec7e9b|94059e0bf35aa40e|409528534||t19041.4908953389s|bbcd9aedc63541ac|7846|rds|vector|||2.284||
 goldWithFirstDate|stem|495863281ef4ac38|87951fc9207d3dec|dbe48b20fdc879b2|-1890851130||t19032.0330012617s|89f1b7b42feea022|190512|rds|vector|||4.69||
 last_year_of_data|stem|af6767bc6f600d6e|bf216b6e828d0451|787f005495551c49|-903342058||t19041.7628309118s|9935591c0ed1d478|103|rds|vector||last_year_of_data_98ac405d*last_year_of_data_3507997e|0.019||
+maxWords|pattern|dbd3e08f1b4f9119|2eaaf68ac53e97fb||1506174151||||102|rds|list||maxWords_a114c8f8*maxWords_a737f29a|0.123||
+maxWords_a114c8f8|branch|3c30975eeda9b88c|2eaaf68ac53e97fb|3667bdf5c22855b9|971581363||t19041.9396853302s|b6d2e014b07bc296|51|rds|list|maxWords||0.055||
+maxWords_a737f29a|branch|3daabecbf35e6345|2eaaf68ac53e97fb|bfc1086e73e58ba7|-26016662||t19041.9443473054s|b6d2e014b07bc296|51|rds|list|maxWords||0.068||
 merge_and_complete|function|4f8a8df6e67891ac||||||||||||||
 merge_records|function|c73ed1b9ea94aa87||||||||||||||
 merge_text_meta_records|function|d12f0e8ce42802f0||||||||||||||
@@ -38,6 +47,10 @@ ready2mixes|pattern|27b239193e787527|e734915761382544||-315733858||||76795835|rd
 ready2mixes_7d92ee2b|branch|a191315de08d92a4|e734915761382544|50a79fa11b7e972f|1751360093||t19041.7751190781s|f803f3f695fc1ba7|47718837|rds|list|ready2mixes||371.95||
 ready2mixes_bcf1d2a1|branch|bc3317217e49e1b9|e734915761382544|6d4c823d41234283|1216270155||t19041.7703539846s|29327793ad36986f|29076998|rds|list|ready2mixes||232.766||
 report|stem|e14567de0b51529f|62d72de7f427e622|9e09982a9239e7ee|-237041703|reports/report.html*reports/report.Rmd|t19041.2839984877s|88b3680226f92b37|624226|file|vector|||0.228||
+setup_input_data|function|519114848741c0c0||||||||||||||
+setupInputData|pattern|7a206b11d58a833a|a4a1ea7dd7070fdb||2067551824||||458696437|rds|list||setupInputData_f0647d1d*setupInputData_5e6fb5b1|11.246||
+setupInputData_5e6fb5b1|branch|be17faab84e1af41|a4a1ea7dd7070fdb|50ec2ee2a236275d|-957216606||t19042.2123654036s|93ce581d051b1b96|286282926|rds|list|setupInputData||6.2||
+setupInputData_f0647d1d|branch|0f9c8b0f5fbbb7a3|a4a1ea7dd7070fdb|764e559ff86ef47a|-833275661||t19042.2020169311s|b4f97cc936c5a246|172413511|rds|list|setupInputData||5.046||
 varic_df|stem|790b5172666f516c|54f04991b2ed2e74|84ce3a7fc05bd542|-541543958||t19041.4888583738s|ce75c6e8c70bdcbb|65293185|rds|vector|||5.051||
 varicella|stem|eedef691b872c4e7|e5aae7c4d0d68c15|b494fb833027acd6|-1866151970||t19041.6446051174s|d452af4ff052789e|66989669|rds|vector|||4.375||
 varicellas|pattern|ddb4c46ac1328a56|b36f7450be230c39||1838908784||||59077374|rds|list||varicellas_3f25784b*varicellas_cfbc215f|8.538||

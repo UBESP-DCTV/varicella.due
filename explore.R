@@ -25,6 +25,10 @@ varicella <- tar_read(varicella)
 example <- tar_read(example)
 ready2mix <- tar_read(ready2mix)
 mixdb <- tar_read(mixdb)
+mixdbs <- tar_read(mixdbs)
+embeddingMatrix <- tar_read(embeddingMatrix)
+
+
 
 
 meta_vars <- c("id_medico", "data", "data_n", "sesso", "data_invio",
@@ -32,6 +36,10 @@ meta_vars <- c("id_medico", "data", "data_n", "sesso", "data_invio",
                "data_elim", "decesso_data", "consenso_pedianet", "min_of_data",
                "max_of_data", "giorni")
 
+
+str(mixdbs, 1)
+attr(mixdbs[[1]], "meta")$set |>
+  str(1)
 
 str(mixdb, 1)
 
@@ -46,3 +54,5 @@ res <- compose_trvaltest_up_to_year(varicella, 2005)
 res <- create_varicella_mixdb(ready2mix)
 res <- merge_text_meta_records(example, meta_vars())
 
+
+str(embeddingMatrix[[1]], 1)

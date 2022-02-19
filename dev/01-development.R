@@ -9,7 +9,7 @@ prj_pkgs <- c(
   "tibble", "readr", "dplyr", "stringr", "lubridate", "tidyr", "furrr",
   "keras", "depigner", "janitor", "forcats", "future", "future.callr",
   "future.batchtools", "bs4Dash", "DT", "gt", "pingr", "shinybusy",
-  "shinyWidgets"
+  "shinyWidgets", "qs"
 )
 renv::install(prj_pkgs)
 prj_pkgs |>
@@ -67,6 +67,9 @@ basename(usethis::use_test("create_varicella")) |>
   usethis::use_r()
 
 basename(usethis::use_test("meta_vars")) |>
+  usethis::use_r()
+
+basename(usethis::use_test("setup_input_data")) |>
   usethis::use_r()
 
 

@@ -52,7 +52,47 @@ list(
     iteration = "list"
   ),
 
+  tar_target(
+    maxWords,
+    min(
+      length(limpido:::get_dictionary(mixdbs)),
+      122607L # all words in the pretrained
+    ),
+    pattern = map(mixdbs),
+    iteration = "list"
+  ),
 
+  tar_target(embeddingDim, "300"), # or "100"
+  tar_target(fasttextPretrained, {
+    pretrained_path <- embeddingDim |>
+      switch(
+        "100" = file.path(get_data_path(), "model_100.vec"),
+        "300" = file.path(get_data_path(), "model_300.vec")
+      )
+    readr::read_lines(pretrained_path, skip = 1L)
+  }),
+
+  tar_target(
+    embeddingMatrix,
+    limpido:::embedding_mtrx(
+      mixdbs, fasttextPretrained, embeddingDim, maxWords
+    ),
+    pattern = map(mixdbs, maxWords),
+    iteration = "list"
+  ),
+
+  tar_target(
+    setupInputData,
+    setup_input_data(
+      mixdb = mixdbs,
+      embedding_matrix = embeddingMatrix,
+      fasttext_pretrained = fasttextPretrained,
+      max_words = maxWords,
+      embedding_dim = embeddingDim
+    ),
+    pattern = map(mixdbs, maxWords, embeddingMatrix),
+    iteration = "list"
+  ),
 
 
   # compile the report

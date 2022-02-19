@@ -1306,9 +1306,9 @@
       "RemoteUsername": "UBESP-DCTV",
       "RemoteRepo": "limpido",
       "RemoteRef": "master",
-      "RemoteSha": "a4c52dde3533150cda8faa74f1454ba1008ee385",
+      "RemoteSha": "34b167738e37c7ad6cc4d04d1e6a92e220707410",
       "RemoteHost": "api.github.com",
-      "Hash": "ee1d84524e35e019b68d2cd7e95f82bd",
+      "Hash": "bdac03c4267cd8eca69bd212d30f451f",
       "Requirements": [
         "dplyr",
         "furrr",
