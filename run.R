@@ -1,9 +1,14 @@
 {
   function(proceed = TRUE, save_all = TRUE) {
     if (interactive()) {
-      if (requireNamespace("rstudioapi") && rstudioapi::isAvailable() && save_all) {
+      if (
+        requireNamespace("rstudioapi") &&
+        rstudioapi::isAvailable() &&
+        save_all
+      ) {
         rstudioapi::documentSaveAll()
       }
+
       targets::tar_visnetwork() |>
         print()
 
@@ -15,7 +20,7 @@
     if (proceed) {
       withr::with_envvar(
         list(RSTUDIO_VERSION = "2021.09.0"), {
-         # devto3ols::test(stop_on_failure = TRUE)
+         # devtools::test(stop_on_failure = TRUE)
          targets::tar_make_future(workers = 8)
         }
       )
