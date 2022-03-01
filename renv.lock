@@ -102,6 +102,14 @@
       "Hash": "470851b6d5d0ac559e9d01bb352b4021",
       "Requirements": []
     },
+    "RApiSerialize": {
+      "Package": "RApiSerialize",
+      "Version": "0.1.0",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Hash": "96a7dca805d39693b0cb0dad099a5899",
+      "Requirements": []
+    },
     "RColorBrewer": {
       "Package": "RColorBrewer",
       "Version": "1.1-2",
@@ -116,6 +124,14 @@
       "Source": "Repository",
       "Repository": "RSPM",
       "Hash": "22b546dd7e337f6c0c58a39983a496bc",
+      "Requirements": []
+    },
+    "RcppParallel": {
+      "Package": "RcppParallel",
+      "Version": "5.1.5",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Hash": "f3e94e34ff656a7c8336ce01207bc2b8",
       "Requirements": []
     },
     "RcppTOML": {
@@ -402,6 +418,20 @@
       "Repository": "CRAN",
       "Hash": "ce49bfe5bc0b3ecd43a01fe1b01c2243",
       "Requirements": []
+    },
+    "clustermq": {
+      "Package": "clustermq",
+      "Version": "0.8.95.3",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Hash": "a9cbe19a941c943dd57b0a602b500437",
+      "Requirements": [
+        "R6",
+        "Rcpp",
+        "narray",
+        "progress",
+        "purrr"
+      ]
     },
     "codetools": {
       "Package": "codetools",
@@ -1306,9 +1336,9 @@
       "RemoteUsername": "UBESP-DCTV",
       "RemoteRepo": "limpido",
       "RemoteRef": "master",
-      "RemoteSha": "34b167738e37c7ad6cc4d04d1e6a92e220707410",
+      "RemoteSha": "d907cf70b9cc6893103c4c3d2805631ca67dd568",
       "RemoteHost": "api.github.com",
-      "Hash": "bdac03c4267cd8eca69bd212d30f451f",
+      "Hash": "7b2ce237fd9f6d8e451117811a83291a",
       "Requirements": [
         "dplyr",
         "furrr",
@@ -1474,6 +1504,17 @@
       "Repository": "RSPM",
       "Hash": "7a7541cc284cb2ba3ba7eae645892af5",
       "Requirements": []
+    },
+    "narray": {
+      "Package": "narray",
+      "Version": "0.4.1.1",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Hash": "c64865aba235f36a49d798613cbfccf7",
+      "Requirements": [
+        "progress",
+        "stringr"
+      ]
     },
     "nlme": {
       "Package": "nlme",
@@ -1667,6 +1708,18 @@
       "Requirements": [
         "magrittr",
         "rlang"
+      ]
+    },
+    "qs": {
+      "Package": "qs",
+      "Version": "0.25.2",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Hash": "723c6b66a9f76f9c4d809c1feb3695f6",
+      "Requirements": [
+        "RApiSerialize",
+        "Rcpp",
+        "stringfish"
       ]
     },
     "quantreg": {
@@ -2095,6 +2148,17 @@
         "xml2"
       ]
     },
+    "stringfish": {
+      "Package": "stringfish",
+      "Version": "0.15.5",
+      "Source": "Repository",
+      "Repository": "RSPM",
+      "Hash": "f5a78e4562f6390f61ddf14848a0a3d9",
+      "Requirements": [
+        "Rcpp",
+        "RcppParallel"
+      ]
+    },
     "stringi": {
       "Package": "stringi",
       "Version": "1.7.6",
@@ -2164,10 +2228,10 @@
       "RemoteUsername": "ropensci",
       "RemoteRepo": "targets",
       "RemoteRef": "main",
-      "RemoteSha": "8bf16cb21104382a2a1b810e47a1c916263a82cc",
+      "RemoteSha": "8c42336a228874889c9ee99dd154c567b4eee91a",
       "RemoteHost": "api.github.com",
       "Remotes": "MarkEdmondson1234/googleCloudStorageR,",
-      "Hash": "2a1d1495340339d88bb7c2acf261d419",
+      "Hash": "ad5fc987d699cb927d2bbdb86d358e82",
       "Requirements": [
         "R6",
         "base64url",

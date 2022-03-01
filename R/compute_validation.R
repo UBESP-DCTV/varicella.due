@@ -1,7 +1,7 @@
 compute_validation <- function(
     mixdb, max_words, trainval_indeces, maxlen
 ) {
-  validation_indeces <- trainval_indeces[["train_indeces"]]
+  validation_indeces <- trainval_indeces[["validation_indeces"]]
 
   validation_x <- mixdb$x[validation_indeces] %>%
     limpido::add_oov_when_greater_than(max_words)
@@ -20,7 +20,7 @@ compute_validation <- function(
   usethis::ui_done("Validation set ready")
 
   if (trainval_indeces[["is_test"]]) {
-    usethis::ui_warn(
+    usethis::ui_info(
       "Remember that now the 'validation' set is the test set!!"
     )
   }

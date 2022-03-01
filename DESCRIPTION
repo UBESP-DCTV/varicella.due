@@ -36,7 +36,9 @@ Imports:
     gt,
     pingr,
     shinybusy,
-    shinyWidgets
+    shinyWidgets,
+    qs,
+    clustermq
 Suggests: 
     autotestthat (>= 0.1.1),
     checkmate,

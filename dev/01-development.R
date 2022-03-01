@@ -9,7 +9,7 @@ prj_pkgs <- c(
   "tibble", "readr", "dplyr", "stringr", "lubridate", "tidyr", "furrr",
   "keras", "depigner", "janitor", "forcats", "future", "future.callr",
   "future.batchtools", "bs4Dash", "DT", "gt", "pingr", "shinybusy",
-  "shinyWidgets", "qs"
+  "shinyWidgets", "qs", "clustermq"
 )
 renv::install(prj_pkgs)
 prj_pkgs |>
@@ -81,10 +81,16 @@ basename(usethis::use_test("compute_training")) |>
 
 basename(usethis::use_test("compute_validation")) |>
   usethis::use_r()
+
+usethis::use_r("compute_sets_for_keras")
+
+
 basename(usethis::use_test("get_current_parameter")) |>
   usethis::use_r()
 
+usethis::use_r("train_simple_embedding")
 
+usethis::use_r("gg_history")
 
 # Dev cycle -------------------------------------------------------
 

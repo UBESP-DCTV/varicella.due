@@ -51,5 +51,14 @@ merge_records <- function(db, meta_vars) {
     dplyr::summarise(
       dplyr::across(dplyr::all_of(meta), list),
       notes = paste(.data[["notes"]], collapse = " ")
+    ) |>
+    dplyr::mutate(
+      dplyr::across(dplyr::everything(), ~{
+        if (all(
+          purrr::map_lgl(.x, function(cell) length(unique(cell)) == 1)
+        )) {
+          purrr::map(.x, unique)
+        } else .x
+      })
     )
 }

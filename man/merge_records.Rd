@@ -33,8 +33,10 @@ db <- tibble::tribble(
    "foo", "bor", NA, 24,
    "fuu", "bur", "tur", 82
 ) |>
-  dplyr::mutate(data = sample(1:5 + Sys.Date()))
-meta_vars <- c("meta_txt", "meta_num", "data")
+  dplyr::mutate(date = sample(1:5 + Sys.Date()))
+
+meta_vars <- c("meta_txt", "meta_num", "date")
+
 merge_records(db, meta_vars) |>
   dplyr::glimpse()
 

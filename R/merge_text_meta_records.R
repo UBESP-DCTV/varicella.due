@@ -66,10 +66,9 @@ merge_text_meta_records <- function(db, meta_vars = character()) {
   aux |>
     dplyr::mutate(
       data = data |>
-        furrr::future_map(
+        purrr::map(
           merge_records,
-          meta_vars = setdiff(meta_vars, aux_names),
-          .progress = TRUE
+          meta_vars = setdiff(meta_vars, aux_names)
         )
     ) |>
     tidyr::unnest(cols = c(data))
