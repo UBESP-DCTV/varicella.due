@@ -7,7 +7,9 @@ targets::tar_script()
 
 prj_pkgs <- c(
   "tibble", "readr", "dplyr", "stringr", "lubridate", "tidyr", "furrr",
-  "keras", "depigner", "janitor", "forcats"
+  "keras", "depigner", "janitor", "forcats", "future", "future.callr",
+  "future.batchtools", "bs4Dash", "DT", "gt", "pingr", "shinybusy",
+  "shinyWidgets", "qs", "clustermq"
 )
 renv::install(prj_pkgs)
 prj_pkgs |>
@@ -52,9 +54,43 @@ usethis::use_r("eval_dates_for_gold")
 usethis::use_test("expand_prepost_positive")
 usethis::use_r("expand_prepost_positive")
 
-basename(usethis::use_test("merge_and_complete")) |>
+basename(usethis::use_test("merge_records")) |>
   usethis::use_r()
 
+basename(usethis::use_test("merge_id_records")) |>
+  usethis::use_r()
+
+basename(usethis::use_test("compose_trvaltest_up_to_year")) |>
+  usethis::use_r()
+
+basename(usethis::use_test("create_varicella")) |>
+  usethis::use_r()
+
+basename(usethis::use_test("meta_vars")) |>
+  usethis::use_r()
+
+basename(usethis::use_test("setup_input_data")) |>
+  usethis::use_r()
+
+
+basename(usethis::use_test("compute_trainval_indeces")) |>
+  usethis::use_r()
+
+basename(usethis::use_test("compute_training")) |>
+  usethis::use_r()
+
+basename(usethis::use_test("compute_validation")) |>
+  usethis::use_r()
+
+usethis::use_r("compute_sets_for_keras")
+
+
+basename(usethis::use_test("get_current_parameter")) |>
+  usethis::use_r()
+
+usethis::use_r("train_simple_embedding")
+
+usethis::use_r("gg_history")
 
 # Dev cycle -------------------------------------------------------
 

@@ -18,11 +18,10 @@
 #'
 #' @examples
 #' db_gold <- tibble::tribble(
-#'   ~ id_medico, ~n_paz, ~anno, ~class,
-#'   1, 1, 2005L, "is_was_positive",
-#'   2, 1, 2005L, "is_was_positive",
-#'   1, 2, 2008L, "is_was_positive",
-#'   3, 3, 2007L, "is_was_positive"
+#'   ~n_paz, ~anno, ~class,
+#'   1, 2005L, "positive",
+#'   2, 2008L, "positive",
+#'   3, 2007L, "positive"
 #' )
 #'
 #' pop <- data.frame(
@@ -35,8 +34,8 @@
 #'
 expand_prepost_positive <- function(db_gold, pop) {
 
-  pop <- pop |>
-    dplyr::select(dplyr::any_of(names(db_gold)))
+  pop <- pop["n_paz"] |>
+    dplyr::distinct()
 
   wide <- db_gold |>
     tidyr::pivot_wider(
@@ -44,7 +43,7 @@ expand_prepost_positive <- function(db_gold, pop) {
       values_from = .data[["class"]],
       values_fill = "negative"
     ) |>
-    dplyr::bind_rows(pop) |>
+    dplyr::full_join(pop, by = "n_paz") |>
     dplyr::mutate(
       dplyr::across(dplyr::matches("^\\d{4}$"), ~{
         dplyr::if_else(is.na(.x), "negative", .x)
@@ -56,26 +55,22 @@ expand_prepost_positive <- function(db_gold, pop) {
     names() |>
     setdiff(x = as.character(2004:2014))
 
-  wide_compelte <- wide
-  wide_compelte[missing_years] <- "negative"
+  wide[missing_years] <- "negative"
 
-  wide_compelte |>
+  wide |>
     tidyr::pivot_longer(
       dplyr::matches("^\\d{4}$"),
       names_to = "anno",
-      values_to = "is_first_positive",
+      values_to = "class",
       values_ptypes = character()
     ) |>
     dplyr::mutate(
-      class = .data[["is_first_positive"]] |>
+      class = .data[["class"]] |>
         factor(
-          levels = c("negative", "is_was_positive"),
+          levels = c("negative", "positive"),
           labels = c("negative", "positive")
         ),
       anno = as.integer(.data[["anno"]])
     ) |>
-    dplyr::select(-.data[["is_first_positive"]]) |>
-    dplyr::arrange(
-      .data[["n_paz"]], .data[["id_medico"]], .data[["anno"]]
-    )
+    dplyr::arrange(.data[["n_paz"]], .data[["anno"]])
 }

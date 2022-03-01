@@ -50,5 +50,6 @@ read_gold <- function(path) {
 read_varic_df <- function(path) {
   readr::read_rds(path) |>
     janitor::clean_names() |>
-    dplyr::distinct()
+    dplyr::distinct() |>
+    dplyr::rename(date = data)
 }

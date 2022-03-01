@@ -4,12 +4,14 @@
 \alias{create_varicella_mixdb}
 \title{Create the main mixdb for the vericella project}
 \usage{
-create_varicella_mixdb(data_path = get_data_path(), gold)
+create_varicella_mixdb(gold_varicella)
 }
 \arguments{
-\item{data_path}{(chr) path to the data folder}
-
-\item{gold}{(chr) pedinet gold standard}
+\item{gold_varicella}{(data frame) full varicella data to use,
+including a variable named \code{set} (with tag for "train" and
+"validation", and possibly "test" too), and a factor variable named
+\code{class} (with the class of interest, e.g. "negative" and
+"positive")}
 }
 \value{
 invisibly `TRUE``
