@@ -12,19 +12,23 @@ compute_sets_for_keras <- function(mixdb, max_words, max_len) {
 
   list(
     train = list(
-      train = compute_training(  # return metrics on training too
+      # return metrics on training too
+      train = compute_training(
         mixdb, max_words, current_trainval_indeces, maxlen = max_len
       ),
-      validation  = compute_validation(  # return metrics on validation too
+      # return metrics on validation too
+      validation  = compute_validation(
         mixdb, max_words, current_trainval_indeces, maxlen = max_len
       )
     ),
 
     test = list(
-      train = compute_training(  # return metrics on training too
+      # return metrics on training too
+      train = compute_training(
         mixdb, max_words, final_traintest_indeces, maxlen = max_len
       ),
-      test  = compute_validation(  # return metrics on validation too
+      # return metrics on validation too
+      test  = compute_validation(
         mixdb, max_words, final_traintest_indeces, maxlen = max_len
       )
     )
