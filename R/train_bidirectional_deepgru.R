@@ -1,4 +1,4 @@
-train_simple_embedding <- function(
+train_bidirectional_deepgru <- function(
     # empbeddings
     max_len,
     max_words,  # adjusted for OOV and PAD!!
@@ -24,7 +24,7 @@ train_simple_embedding <- function(
 
     # log
     last_year_of_data,
-    use_weighted_classes = TRUE,
+    use_weights = TRUE,
     is_test = FALSE,
     save_model = TRUE,
     tg = TRUE,
@@ -42,7 +42,7 @@ train_simple_embedding <- function(
   rm(sets)
   gc(FALSE)
 
-  weights <- if (use_weighted_classes) {
+  weights <- if (use_weights) {
     as.list(nrow(train$train_y)/(train$n_class * colSums(train$train_y))) |>
       setNames(c("0", "1"))
   } else {
@@ -50,7 +50,9 @@ train_simple_embedding <- function(
   }
 
   # Model definition ================================================
-  run_name <- glue::glue("0.0.1.{last_year_of_data}-simple_embedding")
+  run_name <- glue::glue(
+    "0.1.1.{last_year_of_data}-bidirectional-deepGRU"
+  )
   architecture <- glue::glue("
   ```
   ARCHITECTURE
@@ -60,7 +62,7 @@ train_simple_embedding <- function(
   time      : {lubridate::now()}
   train year: {last_year_of_data}
   achitect  : CL
-  network   : embedding + 1FC{preoutput_fc_units}
+  network   : 2bi-GRU{2*preoutput_fc_units} + 2FC{preoutput_fc_units}
   ```
   ")
   if (tg) {
@@ -86,12 +88,36 @@ train_simple_embedding <- function(
     keras::layer_batch_normalization(name = "l1_batch-norm") |>
     keras::layer_dropout(input_do, name = "l1_dropout")
 
+  # l2_deepgru
+  l2_deepgru <- l1_embedding |>
+    keras::bidirectional(keras::layer_gru(
+      units = 2 * preoutput_fc_units,
+      dropout = layers_do, return_sequences = TRUE
+    )) |>
+    keras::bidirectional(keras::layer_gru(
+      units = 2 * preoutput_fc_units,
+      dropout = layers_do
+    )) |>
+    keras::layer_batch_normalization(name = "l1_batch-norm") |>
+    keras::layer_dropout(input_do, name = "l1_dropout")
+
+
+
+
+
   # OUTPUT ==========================================================
-  output <- l1_embedding |>
+  output <- l2_deepgru |>
     keras::layer_dense(
       units = preoutput_fc_units,
       activation = "relu",
-      name = "fc_out"
+      name = "fc_out_1"
+    ) |>
+    keras::layer_batch_normalization() |>
+    keras::layer_dropout(layers_do) |>
+    keras::layer_dense(
+      units = preoutput_fc_units,
+      activation = "relu",
+      name = "fc_out_2"
     ) |>
     keras::layer_batch_normalization() |>
     keras::layer_dropout(layers_do) |>
@@ -104,6 +130,7 @@ train_simple_embedding <- function(
   # MODEL ===========================================================
   model <- keras::keras_model(l1_input, output)
 
+  if (keras_verbose > 0) summary(model)
 
   # COMPILE =========================================================
   model |>

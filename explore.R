@@ -39,7 +39,22 @@ ready2mixes_2009 <- tar_read(ready2mixes_2009)
 str(ready2mixes_2011)
 
 
-sets_for_keras_2009 <- tar_read(sets_for_keras_2009)
+ready2mixes_204 <- tar_read(ready2mixes_2004)
+mixdbs_2004 <- tar_read(mixdbs_2004)
+sets_for_keras_2004 <- tar_read(sets_for_keras_2004)
+corpusDictionary_2004 <- tar_read(corpusDictionary_2004)
+
+
+sets_for_keras_2004 <- tar_read(sets_for_keras_2004)
+sets_for_keras_2004$train$train$train_y |> colSums()
+sets_for_keras_2004$train$validation$validation_y |> colSums()
+
+
+sets_for_keras_2013 <- tar_read(sets_for_keras_2013)
+sets_for_keras_2013$train$train$train_y |> colSums()
+sets_for_keras_2013$train$validation$validation_y |> colSums()
+
+
 
 sets_for_keras
 
@@ -113,6 +128,11 @@ embedding_matrix <- tar_read(embeddingMatrix); embedding_matrix <- embedding_mat
 input_do <- tar_read(inputDO)
 layers_do <- tar_read(layersDO)
 
+
+se <- tar_read(testSimpleEmbedding_2008)
+
+p <- plot(se$params$history) |>
+  gg_history(se$params$history, se$params)
 
 
 # Layer 1 =========================================================
@@ -265,7 +285,6 @@ adjustesMaxWords <- max_words + 2
 
 
 maxLen <- tar_read(maxLen)
-adjustesMaxWords_2008 <- tar_read(adjustesMaxWords_2008)
 embeddingDim <- tar_read(embeddingDim)
 embeddingMatrix_2008 <- tar_read(embeddingMatrix_2008)
 
@@ -276,17 +295,52 @@ str(corpusDictionary_2008)
   attr(corpusDictionary_2008, "frequencies")[1:20]
 
 
-  pediaDictSize <- tar_read(pediaDictSize)
-
-
-  corpusDicSize_2008 <- tar_read(corpusDicSize_2008)
 
 
 
+last_training_year <- 2008
+maxLen <- tar_read(maxLen)
+adjustesMaxWords <- tar_read(adjustesMaxWords_2008)
+embeddingDim <- tar_read(embeddingDim)
+embeddingMatrix <- tar_read(embeddingMatrix)[[1]]
+pediaDictSize <- tar_read(pediaDictSize)
+corpusDicSize <- tar_read(corpusDicSize_2008)
+inputDO <- tar_read(inputDO)
+layersDO <- tar_read(layersDO)
+preoutputFCunits <- 128
+loss <- "binary_crossentropy"
+optimizer <- "adam"
+metrics <- "accuracy"
+sets_for_keras <- tar_read(sets_for_keras_2008)
+batchSize <- 8
+epochs <- 50
 
 
 
 
+    res <- train_bidirectional_gru(
+      # embeddings
+      maxLen, adjustesMaxWords,
+      embeddingDim, embeddingMatrix,
+      pediaDictSize, corpusDicSize,
+
+      # train
+      inputDO, layersDO, preoutputFCunits,
+
+      # optimize
+      loss, optimizer, metrics,
+
+      # fit
+      sets_for_keras, batchSize, epochs,
+
+      # log
+      last_year_of_data = last_training_year,
+      use_weighted_classes = FALSE,
+      is_test = FALSE,
+      save_model = FALSE,
+      tg = FALSE,
+      keras_verbose = 1
+    )
 
 
 

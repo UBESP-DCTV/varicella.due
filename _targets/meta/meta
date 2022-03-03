@@ -16,10 +16,10 @@ adjustesMaxWords_2013|stem|21badd09d054781b|aa6b790cd741f0b9|48e4ea5c5615b102|13
 adjustesMaxWords_2e407233|branch|36fcc909d8fb8720|1539432efaa7d411|9a13637456e39b94|2129082059||t19043.004033538s|de1c6d017cb4e8a8|38|qs|list|adjustesMaxWords||0||
 adjustesMaxWords_660b53d5|branch|81db817f18a870be|1539432efaa7d411|97b7067ca4f3c420|1232229359||t19043.004033538s|de1c6d017cb4e8a8|38|qs|list|adjustesMaxWords||0||
 batch|stem|c26116cb5fa02c89|a972c56e5b65438b|ef46db3751d8e999|-1883671814||t19043.0040335843s|4343d7d1c51aa801|34|qs|vector|||0||
-batchSize|stem|c26116cb5fa02c89|a972c56e5b65438b|ef46db3751d8e999|-206956524||t19043.293949046s|4343d7d1c51aa801|34|qs|vector|||0||
+batchSize|stem|452a9c63dd88a69e|92ff830b8dd4e478|ef46db3751d8e999|-206956524||t19054.3212238519s|4343d7d1c51aa801|34|qs|vector|||0.001||
 ciao|stem|4a74c53de24a35aa|2a2cf7e632cc6f0b|fdcdf23f9eace6e0|-256703320||t19030.604544606s|a05626eeb81ea279|51|rds|vector|||0||
 compose_trvaltest_up_to_year|function|e4cb4ce6ee670eb5||||||||||||||
-compute_sets_for_keras|function|559e73c93be43913||||||||||||||
+compute_sets_for_keras|function|ba11a355aa286df6||||||||||||||
 compute_training|function|77cc2b056e24d2e9||||||||||||||
 compute_trainval_indeces|function|6043adc4f3ad9098||||||||||||||
 compute_validation|function|b4ab222d236964fd||||||||||||||
@@ -86,7 +86,7 @@ embeddingMatrix_48dd5d77|branch|0dd003cb6e7ae3dd|f289aca23eea5a03|6216303a8ebb17
 embeddingMatrix_a3d327d4|branch|d0c09cf163434a6f|f289aca23eea5a03|2f93207e21690a67|-255036072||t19042.2713003005s|3e2b7d81291763cf|99678455|qs|list|embeddingMatrix||24.694||
 embeddingMatrix_cd0cc038|branch|7abe530b61a7aa75|f289aca23eea5a03|d198858fc81a3d61|1356484493||t19042.5393735028s|bc1cccddc49b79e9|99679319|qs|list|embeddingMatrix||26.414||
 empbeddingDim|stem|f9475b618555f7a0|ca746af72f1faefe|ef46db3751d8e999|1295372731||t19041.9189520868s|9064907978062c20|56|rds|vector|||0.019||
-epochs|stem|c27168815f2da414|50fdecbcecf887e2|ef46db3751d8e999|-1136840535||t19042.8221556063s|4343d7d1c51aa801|34|qs|vector|||0.01||
+epochs|stem|c27168815f2da414|50fdecbcecf887e2|ef46db3751d8e999|-1136840535||t19054.2710491589s|4343d7d1c51aa801|34|qs|vector|||0.001||
 eval_dates_for_gold|function|a77073db5d721463||||||||||||||
 example|stem|0c7bfadbf7121535|bd7ae83b8fa573ec|1e1a8b0a6b21d804|822529522||t19041.736728656s|93d3ce5d337610ed|222098|rds|vector|||5.102||
 expand_prepost_positive|function|fcbe68865fae7cce||||||||||||||
@@ -107,12 +107,12 @@ globalGold|stem|66c90a88a0f86f03|cf3dbce01b8d6ac8|672cabe2d19b0138|-518652059||t
 gold|stem|e79f7a79f1e8a960|62d52a47bd595348|ba57cd57ce41c375|1293082345||t19042.2321941549s|d62779f888f3575d|355002|qs|vector|||0.236||
 goldDate|stem|44b6be8a37311271|eb79df1ecbec7e9b|1c72d0c79d8b5770|409528534||t19042.2321237007s|1eaa1080e61dfce5|15936|qs|vector|||2.34||
 goldWithFirstDate|stem|495863281ef4ac38|87951fc9207d3dec|dbe48b20fdc879b2|-1890851130||t19032.0330012617s|89f1b7b42feea022|190512|rds|vector|||4.69||
-inputDO|stem|468a648d2ccc4d8d|faf70ce56e02c268|ef46db3751d8e999|1722873158||t19043.0040322417s|de1c6d017cb4e8a8|38|qs|vector|||0.009||
+inputDO|stem|d521aa0557f83685|57985dbe837787da|ef46db3751d8e999|1722873158||t19054.8293557809s|de1c6d017cb4e8a8|38|qs|vector|||0.001||
 last_year_of_data|stem|dc37ba9334f738b9|506abf51a16ea8d0|787f005495551c49|-903342058||t19043.4084185833s|79365c26e374407f|71|qs|vector||last_year_of_data_98ac405d*last_year_of_data_3507997e*last_year_of_data_246233d0*last_year_of_data_e21705ac*last_year_of_data_a704d29f*last_year_of_data_34dbac61*last_year_of_data_840b5acb*last_year_of_data_a147c765*last_year_of_data_fe25e234*last_year_of_data_c7d0bddf|0.001||
 layersDO|stem|b7835e4e2e3c6a48|5f5816a83b478ab7|ef46db3751d8e999|1321258933||t19042.8221557915s|de1c6d017cb4e8a8|38|qs|vector|||0||
 loss|stem|70fc1e9bf905a8c2|8aebdb11ef8c8de8|ef46db3751d8e999|42942348||t19042.8260051607s|b6d2e014b07bc296|51|qs|vector|||0.018||
 max_possible_word_index|function|03d9046a7998d66b||||||||||||||
-maxLen|stem|11c137d2f38d6a61|43e6e196c9c6fe1f|ef46db3751d8e999|1880239240||t19042.4140122503s|4343d7d1c51aa801|34|qs|vector|||0.026||
+maxLen|stem|c94f01e33cf4ba39|6ce6d1d0af6eac03|ef46db3751d8e999|1880239240||t19054.2950599604s|4343d7d1c51aa801|34|qs|vector|||0.001||
 maxWords|pattern|2ec51c336fe73520|df1b31e17e8e5cd3||1506174151||||68|qs|list||maxWords_ac3cb470*maxWords_58872e3f|0.039||
 maxWords_2004|stem|25e76336eb81881f|b6c8ed3fd68c84ec|406bee62225f011f|910701436||t19046.5604599757s|4343d7d1c51aa801|34|qs|vector|||0.001||
 maxWords_2005|stem|6608d53de68dcd35|b529c2c6448a6585|49d95abfd437abae|1215748057||t19046.5604608553s|4343d7d1c51aa801|34|qs|vector|||0.001||
@@ -192,26 +192,26 @@ requirements_cfbc215f|branch|33f2db242d7bec27|eaf98643d0b009b3|37eaf96a6ae7ead6|
 requirements_e327f8a8|branch|025f7781c57aaf04|eaf98643d0b009b3|3bf4751492eb7a92|-1715423238||t19043.665935542s|c3ba60c498a44ad8|447339653|qs|list|requirements||1598.319|Test set has taken the place of the validation set|
 requirements_e563d21f|branch||eaf98643d0b009b3|60546d9db7db8cbc|355707951||t19043.6943614437s||0|qs|list|requirements||||_future_ callr subprocess failed could not start R, exited with nonzero status, has crashed or was killed
 sets_for_keras|pattern|10f682e99521ebac|7d60266583d71952||-339994516||||248032753|qs|list||sets_for_keras_cd0cc038*sets_for_keras_48dd5d77|54.965||
-sets_for_keras_2004|stem|f748e3e93d9372f3|73fefaabdb038856|bac93b6f2c688f44|10150108||t19046.5701115744s|2057934766b8c79b|94005109|qs|vector|||32.092|Test set has taken the place of the validation set|
-sets_for_keras_2005|stem|6a2b93d0737bdb51|4fb2fb8d873a151a|824267bb59df917b|-840467594||t19046.5717077794s|f2743982f54c4763|153874741|qs|vector|||55.284|Test set has taken the place of the validation set|
-sets_for_keras_2006|stem|a8ebbdb93acdfed3|007ac61716959783|4187ded31a069fda|-472799414||t19046.5737235183s|720e58d2b515d3cb|242386995|qs|vector|||68.781|Test set has taken the place of the validation set|
-sets_for_keras_2007|stem|bc0b00dc9a1daa54|49a07c0f1d520e05|6fb0b9b22a44d916|957075901||t19046.5764868924s|0dbc95fe7da69009|338910497|qs|vector|||98.382|Test set has taken the place of the validation set|
-sets_for_keras_2008|stem|4d1dbc5675f6a8ca|fa24c2ef1be80a89|e0ce3272108caa17|1330576963||t19046.5801388682s|f9edc2b53657664b|452944461|qs|vector|||133.554|Test set has taken the place of the validation set|
-sets_for_keras_2009|stem|33193692f5f299c3|15720b6463965e42|cc3eb1ea1c1fce65|342820996||t19046.5841803214s|87a68c60a4303086|586952111|qs|vector|||149.492|Test set has taken the place of the validation set|
-sets_for_keras_2010|stem|5aa715e68f0855ba|31fe756070ebfdf7|25a6e37d16ab67f5|-541810704||t19046.5627877839s|9f16fff34a116607|731875215|qs|vector|||134.663|Test set has taken the place of the validation set|
-sets_for_keras_2011|stem|3dd7a5f516b3df6f|d5c755a0c13527b6|2d45cb45b95b5e5c|-2058851567||t19046.5655853111s|52068e69f2c2ce72|881878286|qs|vector|||94.014|Test set has taken the place of the validation set|
-sets_for_keras_2012|stem|2cb87b2650d390e5|d48c5c6661822cf6|d74b820c329f7065|1796290211||t19046.5675467792s|0ee5af0d3a2aa09e|987580619|qs|vector|||60.424|Test set has taken the place of the validation set|
-sets_for_keras_2013|stem|120b30fc90fe04ca|836e3782a94e218a|10615e2c59f8524d|-1595334054||t19046.568677003s|4ebf4cd47c9069f8|1022282093|qs|vector|||29.517|Test set has taken the place of the validation set|
+sets_for_keras_2004|stem|78723bb3f5cc5314|73fefaabdb038856|72c31b3cf57a1b5d|10150108||t19054.3028562392s|b9dabf47c9912238|196408009|qs|vector|||24.102|Test set has taken the place of the validation set|
+sets_for_keras_2005|stem|aefe4604a31a4c09|4fb2fb8d873a151a|e6ac0f22ac9ae124|-840467594||t19054.3036865617s|c5799819cae677a0|293935568|qs|vector|||42.29|Test set has taken the place of the validation set|
+sets_for_keras_2006|stem|5e4686035add159b|007ac61716959783|cfa53c27a9c2da5e|-472799414||t19054.3048799332s|bbda4d3de4a42139|428455164|qs|vector|||61.497|Test set has taken the place of the validation set|
+sets_for_keras_2007|stem|44a076a01ed4e496|49a07c0f1d520e05|6d02e2f6737a8009|957075901||t19054.3066751997s|5af1c7285b525ced|562997944|qs|vector|||93.91|Test set has taken the place of the validation set|
+sets_for_keras_2008|stem|f82210ff8bf1bf26|fa24c2ef1be80a89|682734893ecf50ce|1330576963||t19054.3090720393s|fae13ac530c6c14d|730864025|qs|vector|||123.778|Test set has taken the place of the validation set|
+sets_for_keras_2009|stem|e0d9aa0e4c3239a3|15720b6463965e42|f94616e52e9a0006|342820996||t19054.3118093429s|a55d7e925ef5cfea|931591778|qs|vector|||146.561|Test set has taken the place of the validation set|
+sets_for_keras_2010|stem|2f55d8416d888d1a|31fe756070ebfdf7|f7c122621c4f9d1a|-541810704||t19054.2995815698s|dfc54b94b6dee9f0|1149807563|qs|vector|||131.852|Test set has taken the place of the validation set|
+sets_for_keras_2011|stem|06ec6cc4b0812458|d5c755a0c13527b6|6a3e025394c41809|-2058851567||t19054.3012334182s|228ca1c906167d9c|1355256340|qs|vector|||89.028|Test set has taken the place of the validation set|
+sets_for_keras_2012|stem|31bce7662b6a799c|d48c5c6661822cf6|541f72ae45723977|1796290211||t19054.3023131384s|e845901c70227ad5|1431376568|qs|vector|||59.704|Test set has taken the place of the validation set|
+sets_for_keras_2013|stem|e3be46cc426a3653|836e3782a94e218a|79c4246c696fc366|-1595334054||t19054.2957490325s|148ccea54cf8216b|1363298977|qs|vector|||45.342|Test set has taken the place of the validation set|
 sets_for_keras_48dd5d77|branch|722e0985accafe54|7d60266583d71952|711b2d9fc89d6025|-794596418||t19043.0338394408s|d074f522a82acaa0|153996179|qs|list|sets_for_keras||32.629|Test set has taken the place of the validation set|
 sets_for_keras_cd0cc038|branch|7858f4c711a9dc1f|7d60266583d71952|739f5611f179be64|1210982478||t19043.0285540055s|976ab3e7d87947f6|94036574|qs|list|sets_for_keras||22.336|Test set has taken the place of the validation set|
 setup_input_data|function|09c752df1b0a3d31||||||||||||||
 setupInputData|pattern|5c60b4b2f4bab4e4|a4a1ea7dd7070fdb||2067551824||||1007419434|qs|list||setupInputData_f0647d1d*setupInputData_5e6fb5b1|10.949||
 setupInputData_5e6fb5b1|branch|aa6e69ebc569663f|a4a1ea7dd7070fdb|2239206bd06f9a81|-957216606||t19042.3095416927s|3b8d405e0f12616c|631597888|qs|list|setupInputData||6.027||
 setupInputData_f0647d1d|branch|e51335ba87932da3|a4a1ea7dd7070fdb|063f264ad02b918d|-833275661||t19042.2822023379s|f51c181248c6205e|375821546|qs|list|setupInputData||4.922||
-targets|object|c53f96b8776257b6||||||||||||||
+targets|object|918412ca04a8588f||||||||||||||
 testSimpleEmbedding|pattern|3d1a1a801fa7e3f8|cbe16b45ef77269d||-2011547744||||161016199|qs|list||testSimpleEmbedding_0e5200a5*testSimpleEmbedding_2b6e21e3|154.45||
 testSimpleEmbedding_0e5200a5|branch|f23e534d03d184d4|cbe16b45ef77269d|bfa8eda03defc9b1|2019574745||t19043.402516841s|2a316d6398e1b07a|56500371|qs|list|testSimpleEmbedding||46.09||
-testSimpleEmbedding_2004|stem|933a1ccfbea52d78|46a15f9834ef435b|bc3e1fac2335dacd|-111026370||t19046.6497959682s|ad38226ded0fec40|56499295|qs|vector|||42.369||
+testSimpleEmbedding_2004|stem|732a68567357963a|a713cda11d4e8ed1|22a0924e0b1966a6|-111026370||t19053.5567810018s|6a2b8a22821bc7ef|56882975|qs|vector|||203.971||
 testSimpleEmbedding_2005|stem|44d68d9e86e07053|7d91549d80f8f9e2|330cd189def6baa9|1533649736||t19046.6510345773s|686771fd427ce39f|104418628|qs|vector|||105.952||
 testSimpleEmbedding_2006|stem|52d2ea43854f1f37|c18aabb75864e5e7|487ebfd2f49a709e|1277756615||t19046.655062904s|8c51ace3123de818|160853175|qs|vector|||346.838||
 testSimpleEmbedding_2007|stem|f3d0fe839713df7a|9c0ec236f3f25690|1b09e5e768f3f578|1039591523||t19046.6611239126s|1884f44fc863bc78|223447335|qs|vector|||522.16||
@@ -228,7 +228,14 @@ testSimpleEmbedding_4733e1da|branch||28a5eae6eff94da4|7c513b71636ea395|194236580
 testSimpleEmbedding_c3c97dc5|branch||28a5eae6eff94da4|2d4845c8175e9c1e|-629063742||t19043.3014855701s||0|qs|list|testSimpleEmbedding||4.179||ValueError Layer l1_embedding weight shape 41375, 300 is not compatible with provided weight shape 41377, 300.Detailed traceback  File homeclminiconda3envsrtensorflowlibpython3.9sitepackageskerasutilstraceback_utils.py, line 67, in error_handler    raise e.with_tracebackfiltered_tb from None  File homeclminiconda3envsrtensorflowlibpython3.9sitepackageskerasenginebase_layer.py, line 1864, in set_weights    raise ValueError
 testSimpleEmbedding_c469f325|branch||5a6da3315306478e|5d6f0fd79a16ad92|1580788062||t19043.2945319011s||0|qs|list|testSimpleEmbedding||3.565||object embedding_matrix not found
 testSimpleEmbedding_d260dac8|branch|8ca0a836c1fdd35e|5bd62f81a2ad2260|529a55f93f54e271|1831788414||t19043.3959163065s|84884b02e266c0af|56495615|qs|list|testSimpleEmbedding||44.925||
-train_simple_embedding|function|453abb8775ab0492||||||||||||||
+train_bidirectional_gru|function|2c839de8573f1bf1||||||||||||||
+train_bidirectional_lstm|function|db029700dd8a0e05||||||||||||||
+train_simple_embedding|function|18ebfac6c013d1c8||||||||||||||
+trainBidirectionalDeepGru_2010|stem||f02f6c0016b8a598|51b0c0ffc16a256b|-2119543906||t19054.8293935532s||0|qs|vector|||0.623||could not find function train_bidirectional_deepgru
+trainBidirectionalGru_2004|stem||ea163e92aed49663|b9474aa8c8f03760|481073459||t19053.5567909683s||0|qs|vector|||8.932||InternalError Graph execution errorDetected at node modelbidirectionalbackward_gruwhilegru_cell_2MatMul_5 defined at most recent call last    File homeclminiconda3envsrtensorflowlibpython3.9sitepackageskerasutilstraceback_utils.py, line 64, in error_handler      return fnargs, kwargs    File homeclminiconda3envsrtensorflowlibpython3.9sitepackageskerasenginetraining.py, line 1384, in fit      tmp_logs  self.train_functioniterator    File homeclminiconda3envsrtensorflowlibpython3.9sitepackageskerasenginetraining.py, line 1021, in train_function      return step_functionself, iterator    File homeclminiconda3envsrtensorflowlibpython3.9sitepackageskerasenginetraining.py, line 1010, in step_function      outputs  model.distribute_strategy.runrun_step, argsdata,    File homeclminiconda3envsrtensorflowlibpython3.9sitepackageskerasenginetraining.py, line 1000, in run_step      outputs  model.train_stepdata    File homeclminiconda3envsrtensorflowlibpython3.9sitepackageskerasenginetraining.py, line 859, in train_step      y_pred  selfx, trainingTrue    File homeclminiconda3envsrtensorflowlibpython3.9sitepackageskerasutilstraceback_utils.py, line 64, in error_handler      return fnargs, kwargs    File homeclminiconda3envsrtensorflowlibpython3.9sitepackageskerasenginebase_layer.py, line 1096, in __call__      outputs  call_fninputs, args, kwargs    File homeclminiconda3envsrtensorflowlibpython3.9sitepackageskerasutilstraceback_utils.py, line 92, in error_handler      return fnargs, kwargs    File homeclminiconda3envsrtensorflowlibpython3.9sitepackageskerasenginefunctional.py, line 451, in call      return self._run_internal_graph    File homeclminiconda3envsrtensorflowlibpython3.9sitepackageskerasenginefunctional.py, line 589, in _run_internal_graph      outputs  node.layerargs, kwar
+trainBidirectionalGru_2010|stem||9670536ff44b3e76|3d98d0296ff5c3f0|574105534||t19053.6534920729s||0|qs|vector|||22.152||InternalError Graph execution errorFailed to call ThenRnnForward with model config rnn_mode, rnn_input_mode, rnn_direction_mode 3, 0, 0 , num_layers, input_size, num_units, dir_count, max_seq_length, batch_size, cell_num_units 1, 300, 256, 1, 10000, 64, 0   node CudnnRNN  modelbidirectionalbackward_gruPartitionedCall Op__inference_train_function_6955Detailed traceback  File homeclminiconda3envsrtensorflowlibpython3.9sitepackageskerasutilstraceback_utils.py, line 67, in error_handler    raise e.with_tracebackfiltered_tb from None  File homeclminiconda3envsrtensorflowlibpython3.9sitepackagestensorflowpythoneagerexecute.py, line 54, in quick_execute    tensors  pywrap_tfe.TFE_Py_Executectx._handle, device_name, op_name,
+trainBidirectionalLSTM_2004|stem||d9ac19e3c3a97c5b|8f4a85c9846c7186|372824793||t19054.5391612437s||0|qs|vector|||0.664||could not find function train_bidirectional_lstm
+trainBidirectionalLSTM_2010|stem||5be167f841218fd3|291fb488ee74b3fd|-1820240260||t19054.5411380569s||0|qs|vector|||1.341||text122 unexpected symbol1 2preoutput_fc_units each
 values|object|72907316d5d87cd3||||||||||||||
 varic_df|stem|d8ee907d329dd7c3|54f04991b2ed2e74|84ce3a7fc05bd542|-541543958||t19042.2316250862s|c39a519be0fbc671|273042581|qs|vector|||5.48||
 varicella|stem|8f6669150fad2eb8|e5aae7c4d0d68c15|dcb0a0f7c1a3c391|-1866151970||t19042.2409474251s|0c117f04b7c73579|278434907|qs|vector|||4.856||
@@ -243,7 +250,7 @@ varicellas_2009|stem|ec74015586562684|480c5df932be02d8|e183b33b03f51600|-8252660
 varicellas_2010|stem|16fa456a460ad9da|7b774aac90b2ea7b|e183b33b03f51600|1581877733||t19044.8023240477s|7ec175a55c2459d9|871357510|qs|vector|||1.74||
 varicellas_2011|stem|2ae3837c629f8f37|bef1ff4c9408b960|e183b33b03f51600|-189745483||t19044.8024883053s|bd3d6bafd81e1382|803271436|qs|vector|||1.275||
 varicellas_2012|stem|0f0bc30faac95319|4cd71ae41e1dceb6|e183b33b03f51600|-1032859088||t19044.8026050634s|a4b45b50d9989d30|579288672|qs|vector|||0.836||
-varicellas_2013|stem|6d774b96693b9e30|9586ba84a8460964|e183b33b03f51600|-677970818||t19044.8026766368s|886b9a2cea4253d2|325584258|qs|vector|||0.377||
+varicellas_2013|stem|6d774b96693b9e30|9586ba84a8460964|e183b33b03f51600|-677970818||t19054.2970765755s|886b9a2cea4253d2|325584258|qs|vector|||4.401||
 varicellas_2014|stem||7a05d382f6b92fbe|e183b33b03f51600|-1488118805||t19044.8027256506s||0|qs|vector|||0.007||32myear39m must be between 2004 and 2013.It is 34m201439m.Please, provide a value between the bounduaries.
 varicellas_3919d9a1|branch|f9858200aefb5000|b36f7450be230c39|950849872d742e95|-1103574483||t19043.4098298294s|9139d14a06cf9ab4|325583609|qs|list|varicellas||0.387||
 varicellas_3f25784b|branch|bf5b74fa33aebb58|b36f7450be230c39|018fe249e6cf7236|-981106266||t19042.2429494328s|cf46cfe51895ee20|176460312|qs|list|varicellas||3.236||

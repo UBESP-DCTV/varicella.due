@@ -3,7 +3,7 @@ compute_sets_for_keras <- function(mixdb, max_words, max_len) {
   sets <- attr(mixdb, "meta")$set
 
   current_trainval_indeces <- compute_trainval_indeces(
-    sets, validation_len = 200L, is_test = FALSE
+    sets, validation_len = Inf, is_test = FALSE
   )
 
   final_traintest_indeces <- compute_trainval_indeces(

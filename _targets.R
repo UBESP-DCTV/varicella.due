@@ -3,7 +3,11 @@ options(tidyverse.quiet = TRUE)
 library(targets)
 library(tarchetypes)
 library(tibble)
+library(depigner)
 
+
+# library(future)
+# plan(multicore)
 
 list.files(here::here("R"), pattern = "\\.R$", full.names = TRUE) |>
   lapply(source) |> invisible()
@@ -73,10 +77,70 @@ targets <- tar_map(
   tar_target(adjustesMaxWords, maxWords + 2),
 
 
-  # Keras -----------------------------------------------------------
+  # Keras: simple embedidngs---------------------------------------
+  # tar_target(
+  #   testSimpleEmbedding,
+  #   train_simple_embedding(
+  #     # embeddings
+  #     maxLen, adjustesMaxWords,
+  #     embeddingDim, embeddingMatrix,
+  #     pediaDictSize, corpusDicSize,
+  #
+  #     # train
+  #     inputDO, layersDO, preoutputFCunits,
+  #
+  #     # optimize
+  #     loss, optimizer, metrics,
+  #
+  #     # fit
+  #     sets_for_keras, batchSize, epochs,
+  #
+  #     # log
+  #     last_year_of_data = last_training_year,
+  #     use_weighted_classes = TRUE,
+  #     is_test = FALSE,
+  #     save_model = TRUE,
+  #     tg = FALSE,
+  #     keras_verbose = 0
+  #   ),
+  #   packages = c("keras", "depigner")
+  # ),
+  #
+  # Keras: bi-GRU -------------------------------------------------
+
+  # tar_target(
+  #   trainBidirectionalGru,
+  #   train_bidirectional_gru(
+  #     # embeddings
+  #     maxLen, adjustesMaxWords,
+  #     embeddingDim, embeddingMatrix,
+  #     pediaDictSize, corpusDicSize,
+  #
+  #     # train
+  #     inputDO, layersDO, preoutputFCunits,
+  #
+  #     # optimize
+  #     loss, optimizer, metrics,
+  #
+  #     # fit
+  #     sets_for_keras, batchSize, epochs,
+  #
+  #     # log
+  #     last_year_of_data = last_training_year,
+  #     use_weighted_classes = TRUE,
+  #     is_test = FALSE,
+  #     save_model = TRUE,
+  #     tg = FALSE,
+  #     keras_verbose = 1
+  #   ),
+  #   packages = c("keras", "depigner")
+  # ),
+
+  # Keras: bi-GRU -------------------------------------------------
+
   tar_target(
-    testSimpleEmbedding,
-    train_simple_embedding(
+    trainBidirectionalDeepGru,
+    train_bidirectional_deepgru(
       # embeddings
       maxLen, adjustesMaxWords,
       embeddingDim, embeddingMatrix,
@@ -93,14 +157,44 @@ targets <- tar_map(
 
       # log
       last_year_of_data = last_training_year,
-      use_weights = TRUE,
+      use_weighted_classes = TRUE,
       is_test = FALSE,
       save_model = TRUE,
       tg = TRUE,
-      keras_verbose = 0
+      keras_verbose = 1
     ),
     packages = c("keras", "depigner")
   )
+
+  # Keras: bi-LSTM --------------------------------------------------
+
+  # tar_target(
+  #   trainBidirectionalLSTM,
+  #   train_bidirectional_lstm(
+  #     # embeddings
+  #     maxLen, adjustesMaxWords,
+  #     embeddingDim, embeddingMatrix,
+  #     pediaDictSize, corpusDicSize,
+  #
+  #     # train
+  #     inputDO, layersDO, preoutputFCunits,
+  #
+  #     # optimize
+  #     loss, optimizer, metrics,
+  #
+  #     # fit
+  #     sets_for_keras, batchSize, epochs,
+  #
+  #     # log
+  #     last_year_of_data = last_training_year,
+  #     use_weighted_classes = TRUE,
+  #     is_test = FALSE,
+  #     save_model = TRUE,
+  #     tg = TRUE,
+  #     keras_verbose = 1
+  #   ),
+  #   packages = c("keras", "depigner")
+  # )
 
 )
 
@@ -180,7 +274,7 @@ list(
   # Embeddings ----------------------------------------------------
   tar_target(
     maxLen,
-    4000L,
+    10000L,
     deployment = "main"
   ),
   tar_target(
@@ -282,7 +376,7 @@ list(
 
   tar_target(
     inputDO,
-    0.2,
+    0.1,
     deployment = "main"
   ),
   tar_target(
@@ -314,7 +408,7 @@ list(
 
   tar_target(
     batchSize,
-    8L,
+    32L,
     deployment = "main"
   ),
   tar_target(

@@ -22,7 +22,8 @@
       withr::with_envvar(
         list(RSTUDIO_VERSION = "2021.09.0"), {
          # devtools::test(stop_on_failure = TRUE)
-         targets::tar_make_future(workers = 8)
+          targets::tar_make()
+          # targets::tar_make_future(workers = 2)
         }
       )
       targets::tar_visnetwork(
