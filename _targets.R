@@ -138,33 +138,34 @@ targets <- tar_map(
 
   # Keras: bi-GRU -------------------------------------------------
 
-  tar_target(
-    trainBidirectionalDeepGru,
-    train_bidirectional_deepgru(
-      # embeddings
-      maxLen, adjustesMaxWords,
-      embeddingDim, embeddingMatrix,
-      pediaDictSize, corpusDicSize,
-
-      # train
-      inputDO, layersDO, preoutputFCunits,
-
-      # optimize
-      loss, optimizer, metrics,
-
-      # fit
-      sets_for_keras, batchSize, epochs,
-
-      # log
-      last_year_of_data = last_training_year,
-      use_weighted_classes = TRUE,
-      is_test = FALSE,
-      save_model = TRUE,
-      tg = TRUE,
-      keras_verbose = 1
-    ),
-    packages = c("keras", "depigner")
-  )
+  # tar_target(
+  #   trainBidirectionalDeepGru,
+  #   train_bidirectional_deepgru(
+  #     # embeddings
+  #     maxLen, adjustesMaxWords,
+  #     embeddingDim, embeddingMatrix,
+  #     pediaDictSize, corpusDicSize,
+  #
+  #     # train
+  #     inputDO, layersDO, preoutputFCunits,
+  #
+  #     # optimize
+  #     loss, optimizer, metrics,
+  #
+  #     # fit
+  #     sets_for_keras, batchSize, epochs,
+  #
+  #     # log
+  #     last_year_of_data = last_training_year,
+  #     use_weighted_classes = TRUE,
+  #     is_test = FALSE,
+  #     save_model = TRUE,
+  #     tg = FALSE,
+  #     keras_verbose = 1
+  #   ),
+  #   packages = c("keras", "depigner")
+  # )
+  #
 
   # Keras: bi-LSTM --------------------------------------------------
 
@@ -195,6 +196,37 @@ targets <- tar_map(
   #   ),
   #   packages = c("keras", "depigner")
   # )
+
+
+  tar_target(
+    testBidirectionalDeepGru,
+    test_bidirectional_deepgru(
+      # embeddings
+      maxLen, adjustesMaxWords,
+      embeddingDim, embeddingMatrix,
+      pediaDictSize, corpusDicSize,
+
+      # train
+      inputDO, layersDO, preoutputFCunits,
+
+      # optimize
+      loss, optimizer, metrics,
+
+      # fit
+      sets_for_keras, batchSize, epochs,
+
+      # log
+      last_year_of_data = last_training_year,
+      use_weighted_classes = TRUE,
+      is_test = TRUE,
+      save_model = TRUE,
+      tg = TRUE,
+      keras_verbose = 1
+    ),
+    packages = c("keras", "depigner")
+  )
+
+
 
 )
 
@@ -408,12 +440,12 @@ list(
 
   tar_target(
     batchSize,
-    32L,
+    16L,
     deployment = "main"
   ),
   tar_target(
     epochs,
-    50L,
+    15L,
     deployment = "main"
   ),
 

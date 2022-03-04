@@ -1,34 +1,34 @@
-train_bidirectional_gru <- function(
+test_bidirectional_deepgru <- function(
     # empbeddings
-    max_len,
-    max_words,  # adjusted for OOV and PAD!!
-    embedding_dim,
-    embedding_matrix,
-    pedia_dict_size,
-    corpus_dict_size,
+  max_len,
+  max_words,  # adjusted for OOV and PAD!!
+  embedding_dim,
+  embedding_matrix,
+  pedia_dict_size,
+  corpus_dict_size,
 
-    # train
-    input_do,
-    layers_do,
-    preoutput_fc_units,
+  # train
+  input_do,
+  layers_do,
+  preoutput_fc_units,
 
-    # optimize
-    loss,
-    optimizer,
-    metrics,
+  # optimize
+  loss,
+  optimizer,
+  metrics,
 
-    # fit
-    sets_for_keras,
-    batch_size,
-    epochs,
+  # fit
+  sets_for_keras,
+  batch_size,
+  epochs,
 
-    # log
-    last_year_of_data,
-    use_weighted_classes = TRUE,
-    is_test = FALSE,
-    save_model = TRUE,
-    tg = TRUE,
-    keras_verbose = 0  # for {future} workers
+  # log
+  last_year_of_data,
+  use_weighted_classes = TRUE,
+  is_test = FALSE,
+  save_model = TRUE,
+  tg = TRUE,
+  keras_verbose = 0  # for {future} workers
 ) {
 
   tg <- tg && Sys.getenv("R_telegram_bot_name") != ""
@@ -50,7 +50,9 @@ train_bidirectional_gru <- function(
   }
 
   # Model definition ================================================
-  run_name <- glue::glue("0.1.1.{last_year_of_data}-bidirectional-GRU")
+  run_name <- glue::glue(
+    "1.3.1.{last_year_of_data}-bidirectional-deepGRU"
+  )
   architecture <- glue::glue("
   ```
   ARCHITECTURE
@@ -60,7 +62,7 @@ train_bidirectional_gru <- function(
   time      : {lubridate::now()}
   train year: {last_year_of_data}
   achitect  : CL
-  network   : bi-GRU{2*preoutput_fc_units} + 2FC{preoutput_fc_units}
+  network   : 2bi-GRU{2*preoutput_fc_units} + 2FC{preoutput_fc_units}
   ```
   ")
   if (tg) {
@@ -84,17 +86,26 @@ train_bidirectional_gru <- function(
     keras::layer_batch_normalization(name = "l1_batch-norm") |>
     keras::layer_dropout(input_do, name = "l1_dropout")
 
-  # l2_gru
-  l2_gru <- l1_embedding |>
+  # l2_deepgru
+  l2_deepgru <- l1_embedding |>
     keras::bidirectional(keras::layer_gru(
+      name = "l2_gru_deep1_sequenced",
       units = 2 * preoutput_fc_units,
-      dropout = layers_do
-    ))
+      return_sequences = TRUE
+    )) |>
+    keras::bidirectional(keras::layer_gru(
+      name = "l2_gru_deep2-last",
+      units = 2 * preoutput_fc_units
+    )) |>
+    keras::layer_batch_normalization(name = "l2_batch-norm") |>
+    keras::layer_dropout(input_do, name = "l2_dropout")
+
+
 
 
 
   # OUTPUT ==========================================================
-  output <- l2_gru |>
+  output <- l2_deepgru |>
     keras::layer_dense(
       units = preoutput_fc_units,
       activation = "relu",
@@ -121,6 +132,19 @@ train_bidirectional_gru <- function(
   if (keras_verbose > 0) summary(model)
 
   # COMPILE =========================================================
+
+  metrics <-     list(
+    keras::metric_categorical_accuracy(name = "acc"),
+    keras::metric_auc(name = "auroc"),
+    keras::metric_auc(name = "auprc", curve = "PR"),
+    keras::metric_true_positives(name = "tp"),
+    keras::metric_true_negatives(name = "tn"),
+    keras::metric_false_positives(name = "fp"),
+    keras::metric_false_negatives(name = "fn"),
+    keras::metric_precision(name = "prec"),
+    keras::metric_recall(name = "rec")
+  )
+
   model |>
     keras::compile(
       loss      = loss,
@@ -128,7 +152,18 @@ train_bidirectional_gru <- function(
       metrics   = metrics
     )
 
+
   # Run =============================================================
+  log_dir <- here::here("logs", run_name)
+  callbacks <- list(
+   keras::callback_tensorboard(log_dir = log_dir),
+   keras::callback_early_stopping(
+      "val_auroc",
+      patience = 5L,
+      restore_best_weights = TRUE
+    )
+  )
+
   {
     start_time <- lubridate::now()
 
@@ -148,7 +183,8 @@ train_bidirectional_gru <- function(
       epochs     = epochs,
 
       # targets requirements
-      verbose = keras_verbose
+      verbose = keras_verbose,
+      callbacks = callbacks
     )
 
     train_time <- lubridate::now() - start_time
@@ -195,7 +231,11 @@ train_bidirectional_gru <- function(
   if (tg) depigner::send_to_telegram(p)
 
   list(
-    serialized_model = if (save_model) keras::serialize_model(model) else NULL,
+    serialized_model = if (save_model) {
+      keras::serialize_model(model)
+    } else {
+      NULL
+    },
     params = params
   )
 }

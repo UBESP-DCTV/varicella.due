@@ -24,7 +24,7 @@ train_bidirectional_deepgru <- function(
 
     # log
     last_year_of_data,
-    use_weights = TRUE,
+    use_weighted_classes = TRUE,
     is_test = FALSE,
     save_model = TRUE,
     tg = TRUE,
@@ -42,7 +42,7 @@ train_bidirectional_deepgru <- function(
   rm(sets)
   gc(FALSE)
 
-  weights <- if (use_weights) {
+  weights <- if (use_weighted_classes) {
     as.list(nrow(train$train_y)/(train$n_class * colSums(train$train_y))) |>
       setNames(c("0", "1"))
   } else {
@@ -51,7 +51,7 @@ train_bidirectional_deepgru <- function(
 
   # Model definition ================================================
   run_name <- glue::glue(
-    "0.1.1.{last_year_of_data}-bidirectional-deepGRU"
+    "0.3.1.{last_year_of_data}-bidirectional-deepGRU"
   )
   architecture <- glue::glue("
   ```
@@ -83,23 +83,22 @@ train_bidirectional_deepgru <- function(
       weights = list(embedding_matrix),
       name = "l1_embedding"
     ) |>
-    # [batch, words, embeddings] --> [batch, max-embeddings]
-    keras::layer_global_max_pooling_1d() |>
     keras::layer_batch_normalization(name = "l1_batch-norm") |>
     keras::layer_dropout(input_do, name = "l1_dropout")
 
   # l2_deepgru
   l2_deepgru <- l1_embedding |>
     keras::bidirectional(keras::layer_gru(
+      name = "l2_gru_deep1_sequenced",
       units = 2 * preoutput_fc_units,
-      dropout = layers_do, return_sequences = TRUE
+      return_sequences = TRUE
     )) |>
     keras::bidirectional(keras::layer_gru(
-      units = 2 * preoutput_fc_units,
-      dropout = layers_do
+      name = "l2_gru_deep2-last",
+      units = 2 * preoutput_fc_units
     )) |>
-    keras::layer_batch_normalization(name = "l1_batch-norm") |>
-    keras::layer_dropout(input_do, name = "l1_dropout")
+    keras::layer_batch_normalization(name = "l2_batch-norm") |>
+    keras::layer_dropout(input_do, name = "l2_dropout")
 
 
 
@@ -207,7 +206,11 @@ train_bidirectional_deepgru <- function(
   if (tg) depigner::send_to_telegram(p)
 
   list(
-    serialized_model = if (save_model) keras::serialize_model(model) else NULL,
+    serialized_model = if (save_model) {
+      keras::serialize_model(model)
+    } else {
+      NULL
+    },
     params = params
   )
 }
