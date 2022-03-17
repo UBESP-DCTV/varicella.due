@@ -27,7 +27,9 @@
         }
       )
       targets::tar_visnetwork(
-        targets_only = TRUE, degree_from = 5, degree_to = 5
+        targets_only = TRUE,
+        degree_from = 5,
+        degree_to = 5
       ) |>
         print()
     }

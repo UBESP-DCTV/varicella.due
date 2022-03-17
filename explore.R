@@ -56,6 +56,19 @@ sets_for_keras_2013$train$validation$validation_y |> colSums()
 
 
 
+str(sets_for_keras_2004$train$train, 1)
+
+
+tar_read(pediaDictSize)
+
+
+
+
+
+
+
+
+
 sets_for_keras
 
 ready2mixes_2009$notes |> str(1)
@@ -343,4 +356,261 @@ epochs <- 50
     )
 
 
+    sets <- c(
+      "sets_for_keras_2004", "sets_for_keras_2005", "sets_for_keras_2006",
+      "sets_for_keras_2007", "sets_for_keras_2008", "sets_for_keras_2009",
+      "sets_for_keras_2010", "sets_for_keras_2011", "sets_for_keras_2012",
+      "sets_for_keras_2013"
+    )
+
+    res <- tibble::tibble(
+      year = character(10),
+      neg = numeric(10),
+      pos = numeric(10)
+    )
+    for (i in seq_along(sets)) {
+      set <- sets[[i]]
+      res[[i, 1L]] <- set
+
+      res[i, 2:3] <- tar_read_raw(set)$test$test$validation_y[, 2] |>
+        table() |>
+        as.list() |>
+        setNames(c("neg", "pos"))
+    }
+
+performance <- varicella_due |>
+  dplyr::filter(type == "test") |>
+  dplyr::group_by(year) |>
+  dplyr::filter(epoch == max(epoch)) |>
+  dplyr::select(year, tp:rec) |>
+  dplyr::mutate(year = as.numeric(year)) |>
+  dplyr::arrange(year) |>
+  dplyr::ungroup()
+
+res |>
+  dplyr::mutate(
+    year = stringr::str_extract(year, "\\d+$") |> as.numeric(),
+    true_incidente = pos / (pos + neg)
+  ) |>
+  dplyr::left_join(performance) |>
+  dplyr::mutate(
+    estimated_incidence = (tp + fp)/(tp+fp+fn+tn)
+  )
+
+
+
+
+library(targets)
+library(tidyverse)
+library(ROCR)
+
+# varicella <- tar_read(varicella)
+# mixdbs_2004 <- tar_read(mixdbs_2004)
+eval_plots <- function() {
+  n_years <- 10
+  res <- tibble::tibble(
+    year = numeric(n_years),
+    neg = numeric(n_years),
+    pos = numeric(n_years),
+    incidence = numeric(n_years),
+    pred = vector("list", n_years)
+  )
+  for (i in seq_len(n_years)) {
+    year <- 2003 + i
+    res[[i, 1L]] <- year
+
+    prob <- targets::tar_read_raw(paste0("testing_probs_", year))
+    labels <- targets::tar_read_raw(
+      paste0("sets_for_keras_", year)
+    )$test$test$validation_y[, 2]
+    gc(FALSE)
+
+    res[i, 2:3] <- labels |>
+      table() |>
+      as.list() |>
+      purrr::set_names(c("neg", "pos"))
+
+    res[[i, 4]] <- res[[i, "pos"]] / (res[[i, "pos"]] + res[[i, "neg"]])
+
+    pred <- ROCR::prediction(prob, labels)
+    res[[i, "pred"]] <- list(tibble::tibble(
+      cutoff = pred@cutoffs[[1]][-1],
+      fp = pred@fp[[1]][-1],
+      fn = pred@fn[[1]][-1],
+      tp = pred@tp[[1]][-1],
+      tn = pred@tn[[1]][-1],
+      prec = tp / (tp + fp),
+      rec = tp / (tp + fn),
+      fpr = fp / (tn + fp),
+      dist_prc = sqrt((max(rec) - rec)^2 + (max(prec) - prec)^2),
+      prod_prc = prec * rec,
+      dist_roc = sqrt((min(fpr) - fpr)^2 + (max(rec) - rec)^2),
+
+      estimated_incidence = (tp + fp) / (tp+fp+fn+tn)
+    ))
+  }
+  res_unnested <- res |>
+    tidyr::unnest(pred) |>
+    dplyr::mutate(
+      relerr_inc = estimated_incidence / incidence,
+      abserr_inc = estimated_incidence - incidence
+    )
+
+  best_prc <- res_unnested |>
+    dplyr::group_by(year) |>
+    dplyr::filter(dist_prc == min(dist_prc)) |>
+    dplyr::ungroup()
+
+  best_prod_prc <- res_unnested |>
+    dplyr::group_by(year) |>
+    dplyr::filter(prod_prc == max(prod_prc)) |>
+    dplyr::ungroup()
+
+  best_roc <- res_unnested |>
+    dplyr::group_by(year) |>
+    dplyr::filter(dist_roc == min(dist_roc)) |>
+    dplyr::ungroup()
+
+  gg_roc <- res_unnested |>
+    ggplot2::ggplot(
+      ggplot2::aes(x = fpr, y = rec, colour = abserr_inc)
+    ) +
+    ggplot2::geom_line() +
+    ggplot2::geom_point(
+      data = best_prod_prc,
+      size = 5,
+      colour = "red"
+    ) +
+    ggplot2::geom_text(
+      data = best_prod_prc,
+      ggplot2::aes(
+        label = paste0(
+          "Abs Inc Err\n",
+          100 * round(abserr_inc, 4),
+          "%")
+      )
+    ) +
+    ggplot2::facet_wrap(~year, scales = "free")
+
+  gg_prc <- res_unnested |>
+    ggplot2::ggplot(
+      ggplot2::aes(x = rec, y = prec, colour = abserr_inc)
+    ) +
+    ggplot2::geom_line() +
+    ggplot2::geom_point(
+      data = best_prod_prc,
+      size = 5,
+      colour = "red"
+    ) +
+    ggplot2::geom_text(
+      data = best_prod_prc,
+      ggplot2::aes(
+        label = paste0(
+          "Abs Inc Err\n",
+          100 * round(abserr_inc, 4),
+          "%")
+      )
+    ) +
+    ggplot2::facet_wrap(~year, scales = "free") +
+    ggplot2::labs(
+      title = "Precision-Recall curve on the \"next two-year\" VZV classification task"
+    )
+
+  list(
+    res = res,
+    res_unnested = res_unnested,
+    gg_roc = gg_roc,
+    gg_prc = gg_prc
+  )
+}
+
+gg <- eval_plots()
+
+gg$res_unnested |>
+  dplyr::mutate(
+    year = year |>
+      factor(
+        levels = 2004:2013,
+        labels = paste0("Model: 2004-", 2004:2013)
+      )
+  ) |>
+  ggplot2::ggplot(
+    ggplot2::aes(x = fpr, y = rec, colour = abserr_inc)
+  ) +
+  ggplot2::geom_line() +
+  ggplot2::geom_point(
+    data = best_prod_prc |>
+      dplyr::mutate(
+        year = year |>
+          factor(
+            levels = 2004:2013,
+            labels = paste0("Model: 2004-", 2004:2013)
+          )
+      ),
+    size = 5,
+    colour = "red"
+  ) +
+  ggplot2::geom_text(
+    data = best_prod_prc |>
+      dplyr::mutate(
+        year = year |>
+          factor(
+            levels = 2004:2013,
+            labels = paste0("Model: 2004-", 2004:2013)
+          )
+      ),
+    ggplot2::aes(
+      label = paste0(
+        "Incidence Error\n",
+        100 * round(abserr_inc, 4),
+        "%")
+    ),
+    nudge_x = 0.25,
+    nudge_y = -0.1
+  ) +
+  ggplot2::facet_wrap(~year, nrow = 2, scales = "free") +
+  ggplot2::theme_bw() +
+  ggplot2::theme(legend.position = "top") +
+  ggplot2::labs(
+    x = "False Positive Rate (AKA 1-Specificity)",
+    y = "Recall (AKA Sensibility)",
+    colour = "Error in Incidence estimation"
+  )
+
+
+
+varicella |>
+  filter(
+    n_paz %in% set$test$test$validation_indeces,
+    lubridate::year(date) %in% 2009:2010
+  ) |>
+  distinct(n_paz, .keep_all = TRUE)
+
+
+
+prob2004 <- tar_read(testing_probs_2004)
+sets_for_keras_2004 <- tar_read(sets_for_keras_2004)
+
+
+
+
+
+pred <- prediction(prob2004, sets_for_keras_2004$test$test$validation_y[, 2])
+
+tibble::tibble(
+  cutoff = pred@cutoffs[[1]][-1],
+  fp = pred@fp[[1]][-1],
+  fn = pred@fn[[1]][-1],
+  tp = pred@tp[[1]][-1],
+  tn = pred@tn[[1]][-1],
+  prec = tp / (tp + fp),
+  rec = tp / (tp + fn),
+  estimated_incidence = (tp + fp) / (tp+fp+fn+tn)
+)
+
+
+perf_prc <- performance(pred, "prec", "rec")
+perf_roc <- performance(pred, "tpr", "fpr")
+plot(perf_prc, colorize = TRUE)
+plot(perf_roc, colorize = TRUE)
 

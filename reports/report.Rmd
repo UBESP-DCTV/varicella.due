@@ -9,11 +9,101 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+```{r}
+library(targets)
+library(tidyverse)
+library(lubridate)
+library(Hmisc)
+library(here)
+```
+
+
+# Dimensioni dei dataset
+
+```{r}
+sets <- c(
+  "sets_for_keras_2004", "sets_for_keras_2005", "sets_for_keras_2006",
+  "sets_for_keras_2007", "sets_for_keras_2008", "sets_for_keras_2009",
+  "sets_for_keras_2010", "sets_for_keras_2011", "sets_for_keras_2012",
+  "sets_for_keras_2013"
+)
+for (i in sets) {
+  usethis::ui_todo(i)
+  
+  tar_read_raw(i) |>
+      purrr::map(~{
+        purrr::map_int(.x, function(set) nrow(set[[1]]))
+    }) |> 
+    print()
+  
+  gc(FALSE); gc(FALSE)
+}
+
+tar_read(sets_for_keras_2012)$test$test$validation_y[, 2] |> table()
+
+```
+
+```{r}
+varicella <- tar_read(varicella)
+to_describe <- varicella |> 
+  dplyr::arrange(date) |> 
+  dplyr::mutate(
+    age = as.Date(date) - as.Date(lubridate::dmy_hms(data_n)),
+    year = lubridate::year(date)
+  ) |>
+  dplyr::distinct(year, n_paz, .keep_all = TRUE) |> 
+  dplyr::mutate(
+    age = as.numeric(age),
+    age = dplyr::if_else(age < 0, NA_real_, age)
+  ) |> 
+  dplyr::select(year, n_paz, sesso, age, class)
+```
+
+```{r}
+summary(
+  class ~ .,
+  data = select(to_describe, -n_paz, -year),
+  method = "reverse",
+  test = TRUE
+) |> 
+  depigner::tidy_summary(
+    exclude1 = FALSE,
+    long = TRUE,
+    prtest = "P"
+  )
+```
+```{r}
+performance <- varicella_due |> 
+  filter(type == "test") |> 
+  group_by(year) |> 
+  filter(epoch == max(epoch)) |>
+  select(year, tp:rec) |>
+  mutate(year = as.numeric(year)) |> 
+  arrange(year)
+```
+
 
 
 ```{r}
-gold_standard <- targets::tar_read(gold)
+tibble::tribble(
+  ~year, ~test,
+2004,  7854,
+2005,	9454,
+2006,	10852,
+2007,	12020,
+2008,	13062,
+2009,	13848,
+2010,	14139,
+2011,	14017,
+2012,	12768,
+2013,	5816
+)
 
-gold_standard
+to_describe |> 
+  group_by(year) |> 
+  count(class) |> 
+  pivot_wider(names_from = class, values_from = n) |> 
+  full_join(performance) 
+  muate(across(tp:tn, ~.x/positive))
 ```
 
