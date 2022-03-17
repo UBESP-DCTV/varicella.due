@@ -614,3 +614,17 @@ perf_roc <- performance(pred, "tpr", "fpr")
 plot(perf_prc, colorize = TRUE)
 plot(perf_roc, colorize = TRUE)
 
+
+as.list(
+    nrow(train$train_y) /
+      (train$n_class * colSums(train$train_y))
+  ) |>
+  setNames(c("0", "1"))
+
+
+
+
+testBidirectionalDeepGru__2010 <- tar_read(testBidirectionalDeepGru_2010)
+
+
+

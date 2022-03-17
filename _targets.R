@@ -220,10 +220,16 @@ targets <- tar_map(
       use_weighted_classes = TRUE,
       is_test = TRUE,
       save_model = TRUE,
-      tg = TRUE,
+      tg = FALSE,
       keras_verbose = 1
     ),
     packages = c("keras", "depigner")
+  ),
+  
+  tar_target(
+    testing_probs,
+    eval_model(testBidirectionalDeepGru, batch_size = 4),
+    packages = "keras"
   )
 
 
@@ -427,16 +433,16 @@ list(
     "binary_crossentropy",
     deployment = "main"
   ),
-  tar_target(
-    optimizer,
-    "adam",
-    deployment = "main"
-  ),
-  tar_target(
-    metrics,
-    "accuracy",
-    deployment = "main"
-  ),
+  # tar_target(
+  #   optimizer,
+  #   "adam",
+  #   deployment = "main"
+  # ),
+  # tar_target(
+  #   metrics,
+  #   "accuracy",
+  #   deployment = "main"
+  # ),
 
   tar_target(
     batchSize,
