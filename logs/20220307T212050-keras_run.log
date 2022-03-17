@@ -1,0 +1,200 @@
+Welcome to depigner: we are here to un-stress you!
+
+Attaching package: ‘testthat’
+
+The following object is masked from ‘package:tarchetypes’:
+
+    matches
+
+The following object is masked from ‘package:targets’:
+
+    matches
+
+✔ skip target embeddingDim
+✔ skip target preoutputFCunits
+✔ skip target rawPop
+✔ skip target layersDO
+✔ skip target rawFT300
+✔ skip target loss
+✔ skip target inputDO
+✔ skip target maxLen
+✔ skip target batchSize
+✔ skip target rawFT100
+✔ skip target epochs
+✔ skip target rawGold
+✔ skip target rawDf
+✔ skip target popolazione
+✔ skip target fasttextPretrained300
+✔ skip target fasttextPretrained100
+✔ skip target globalGold
+✔ skip target varic_df
+✔ skip target fasttextPretrained
+✔ skip target goldDate
+✔ skip target pediaDictSize
+✔ skip target gold
+✔ skip target varicella
+✔ skip target report
+✔ skip target varicellas_2010
+✔ skip target varicellas_2011
+✔ skip target varicellas_2012
+✔ skip target varicellas_2013
+✔ skip target varicellas_2004
+✔ skip target varicellas_2005
+✔ skip target varicellas_2006
+✔ skip target varicellas_2007
+✔ skip target varicellas_2008
+✔ skip target varicellas_2009
+✔ skip target ready2mixes_2010
+✔ skip target ready2mixes_2011
+✔ skip target ready2mixes_2012
+✔ skip target ready2mixes_2013
+✔ skip target ready2mixes_2004
+✔ skip target ready2mixes_2005
+✔ skip target ready2mixes_2006
+✔ skip target ready2mixes_2007
+✔ skip target ready2mixes_2008
+✔ skip target ready2mixes_2009
+✔ skip target mixdbs_2010
+✔ skip target mixdbs_2011
+✔ skip target mixdbs_2012
+✔ skip target mixdbs_2013
+✔ skip target mixdbs_2004
+✔ skip target mixdbs_2005
+✔ skip target mixdbs_2006
+✔ skip target mixdbs_2007
+✔ skip target mixdbs_2008
+✔ skip target mixdbs_2009
+✔ skip target corpusDictionary_2010
+✔ skip target corpusDictionary_2011
+✔ skip target corpusDictionary_2012
+✔ skip target corpusDictionary_2013
+✔ skip target corpusDictionary_2004
+✔ skip target corpusDictionary_2005
+✔ skip target corpusDictionary_2006
+✔ skip target corpusDictionary_2007
+✔ skip target corpusDictionary_2008
+✔ skip target corpusDictionary_2009
+✔ skip target corpusDicSize_2010
+✔ skip target corpusDicSize_2011
+✔ skip target corpusDicSize_2012
+✔ skip target corpusDicSize_2013
+✔ skip target corpusDicSize_2004
+✔ skip target corpusDicSize_2005
+✔ skip target corpusDicSize_2006
+✔ skip target corpusDicSize_2007
+✔ skip target corpusDicSize_2008
+✔ skip target corpusDicSize_2009
+✔ skip target maxWords_2010
+✔ skip target maxWords_2011
+✔ skip target maxWords_2012
+✔ skip target maxWords_2013
+✔ skip target maxWords_2004
+✔ skip target maxWords_2005
+✔ skip target maxWords_2006
+✔ skip target maxWords_2007
+✔ skip target maxWords_2008
+✔ skip target maxWords_2009
+✔ skip target adjustesMaxWords_2010
+✔ skip target embeddingMatrix_2010
+✔ skip target sets_for_keras_2010
+✔ skip target adjustesMaxWords_2011
+✔ skip target embeddingMatrix_2011
+✔ skip target sets_for_keras_2011
+✔ skip target adjustesMaxWords_2012
+✔ skip target embeddingMatrix_2012
+✔ skip target sets_for_keras_2012
+✔ skip target adjustesMaxWords_2013
+✔ skip target embeddingMatrix_2013
+✔ skip target sets_for_keras_2013
+✔ skip target embeddingMatrix_2004
+✔ skip target sets_for_keras_2004
+✔ skip target adjustesMaxWords_2004
+✔ skip target embeddingMatrix_2005
+✔ skip target sets_for_keras_2005
+✔ skip target adjustesMaxWords_2005
+✔ skip target embeddingMatrix_2006
+✔ skip target sets_for_keras_2006
+✔ skip target adjustesMaxWords_2006
+✔ skip target embeddingMatrix_2007
+✔ skip target sets_for_keras_2007
+✔ skip target adjustesMaxWords_2007
+✔ skip target embeddingMatrix_2008
+✔ skip target sets_for_keras_2008
+✔ skip target adjustesMaxWords_2008
+✔ skip target embeddingMatrix_2009
+✔ skip target sets_for_keras_2009
+✔ skip target adjustesMaxWords_2009
+• start target testBidirectionalDeepGru_2010
+Loaded Tensorflow version 2.8.0
+2022-03-07 21:21:01.973156: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:936] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-03-07 21:21:02.005338: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:936] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-03-07 21:21:02.005600: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:936] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-03-07 21:21:02.006021: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-03-07 21:21:02.007154: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:936] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-03-07 21:21:02.007385: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:936] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-03-07 21:21:02.007547: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:936] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-03-07 21:21:02.441691: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:936] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-03-07 21:21:02.441902: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:936] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-03-07 21:21:02.442056: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:936] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-03-07 21:21:02.442222: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 13290 MB memory:  -> device: 0, name: Quadro RTX 5000, pci bus id: 0000:01:00.0, compute capability: 7.5
+Model: "model"
+________________________________________________________________________________
+ Layer (type)                       Output Shape                    Param #     
+================================================================================
+ input_1 (InputLayer)               [(None, 10000)]                 0           
+                                                                                
+ l1_embedding (Embedding)           (None, 10000, 300)              36782700    
+                                                                                
+ l1_batch-norm (BatchNormalization)  (None, 10000, 300)             1200        
+                                                                                
+ l1_dropout (Dropout)               (None, 10000, 300)              0           
+                                                                                
+ bidirectional_1 (Bidirectional)    (None, 10000, 512)              857088      
+                                                                                
+ bidirectional (Bidirectional)      (None, 512)                     1182720     
+                                                                                
+ l2_batch-norm (BatchNormalization)  (None, 512)                    2048        
+                                                                                
+ l2_dropout (Dropout)               (None, 512)                     0           
+                                                                                
+ fc_out_1 (Dense)                   (None, 128)                     65664       
+                                                                                
+ batch_normalization_1 (BatchNormal  (None, 128)                    512         
+ ization)                                                                       
+                                                                                
+ dropout_1 (Dropout)                (None, 128)                     0           
+                                                                                
+ fc_out_2 (Dense)                   (None, 128)                     16512       
+                                                                                
+ batch_normalization (BatchNormaliz  (None, 128)                    512         
+ ation)                                                                         
+                                                                                
+ dropout (Dropout)                  (None, 128)                     0           
+                                                                                
+ out_fc (Dense)                     (None, 1)                       129         
+                                                                                
+================================================================================
+Total params: 38,909,085
+Trainable params: 2,124,249
+Non-trainable params: 36,784,836
+________________________________________________________________________________
+Epoch 1/15
+2022-03-07 21:21:20.764619: I tensorflow/stream_executor/cuda/cuda_dnn.cc:368] Loaded cuDNN version 8302
+   1/2110 [..............................] - ETA: 5:07:35 - loss: 0.4846 - acc: 0.5000 - auroc: 0.0000e+00 - auprc: 0.0000e+00 - tp: 0.0000e+00 - tn: 8.0000 - fp: 8.0000 - fn: 0.0000e+00 - prec: 0.0000e+00 - rec: 0.0000e+00   2/2110 [..............................] - ETA: 53:55 - loss: 0.5325 - acc: 0.5312 - auroc: 0.0000e+00 - auprc: 0.0000e+00 - tp: 0.0000e+00 - tn: 17.0000 - fp: 15.0000 - fn: 0.0000e+00 - prec: 0.0000e+00 - rec: 0.0000e+00   3/2110 [..............................] - ETA: 53:55 - loss: 0.9252 - acc: 0.4792 - auroc: 0.3696 - auprc: 0.0325 - tp: 0.0000e+00 - tn: 23.0000 - fp: 23.0000 - fn: 2.0000 - prec: 0.0000e+00 - rec: 0.0000e+00               4/2110 [..............................] - ETA: 53:54 - loss: 0.8677 - acc: 0.5000 - auroc: 0.4809 - auprc: 0.0414 - tp: 1.0000 - tn: 31.0000 - fp: 30.0000 - fn: 2.0000 - prec: 0.0323 - rec: 0.3333               5/2110 [..............................] - ETA: 53:26 - loss: 1.1953 - acc: 0.4875 - auroc: 0.4373 - auprc: 0.0510 - tp: 2.0000 - tn: 37.0000 - fp: 38.0000 - fn: 3.0000 - prec: 0.0500 - rec: 0.4000   6/2110 [..............................] - ETA: 53:18 - loss: 1.1461 - acc: 0.5000 - auroc: 0.4537 - auprc: 0.0523 - tp: 3.0000 - tn: 45.0000 - fp: 45.0000 - fn: 3.0000 - prec: 0.0625 - rec: 0.5000   7/2110 [..............................] - ETA: 53:14 - loss: 1.0458 - acc: 0.4911 - auroc: 0.4560 - auprc: 0.0450 - tp: 3.0000 - tn: 52.0000 - fp: 54.0000 - fn: 3.0000 - prec: 0.0526 - rec: 0.5000   8/2110 [..............................] - ETA: 52:59 - loss: 1.1510 - acc: 0.4922 - auroc: 0.4055 - auprc: 0.0420 - tp: 3.0000 - tn: 60.0000 - fp: 61.0000 - fn: 4.0000 - prec: 0.0469 - rec: 0.4286   9/2110 [..............................] - ETA: 52:46 - loss: 1.0820 - acc: 0.4722 - auroc: 0.3978 - auprc: 0.0368 - tp: 3.0000 - tn: 65.0000 - fp: 72.0000 - fn: 4.0000 - prec: 0.0400 - rec: 0.4286  10/2110 [..............................] - ETA: 52:31 - loss: 1.0227 - acc: 0.4938 - auroc: 0.4650 - auprc: 0.0440 - tp: 4.0000 - tn: 75.0000 - fp: 77.0000 - fn: 4.0000 - prec: 0.0494 - rec: 0.5000  11/2110 [..............................] - ETA: 52:25 - loss: 0.9871 - acc: 0.4943 - auroc: 0.4598 - auprc: 0.0395 - tp: 4.0000 - tn: 83.0000 - fp: 85.0000 - fn: 4.0000 - prec: 0.0449 - rec: 0.5000  12/2110 [..............................] - ETA: 52:21 - loss: 1.0011 - acc: 0.5000 - auroc: 0.4703 - auprc: 0.0453 - tp: 5.0000 - tn: 91.0000 - fp: 91.0000 - fn: 5.0000 - prec: 0.0521 - rec: 0.5000  13/2110 [..............................] - ETA: 52:20 - loss: 0.9664 - acc: 0.5048 - auroc: 0.5370 - auprc: 0.0611 - tp: 7.0000 - tn: 98.0000 - fp: 98.0000 - fn: 5.0000 - prec: 0.0667 - rec: 0.5833  14/2110 [..............................] - ETA: 52:27 - loss: 0.9321 - acc: 0.5045 - auroc: 0.5964 - auprc: 0.0928 - tp: 9.0000 - tn: 104.0000 - fp: 106.0000 - fn: 5.0000 - prec: 0.0783 - rec: 0.6429  15/2110 [..............................] - ETA: 52:23 - loss: 0.9061 - acc: 0.4958 - auroc: 0.5967 - auprc: 0.0872 - tp: 9.0000 - tn: 110.0000 - fp: 116.0000 - fn: 5.0000 - prec: 0.0720 - rec: 0.6429  16/2110 [..............................] - ETA: 52:17 - loss: 0.9048 - acc: 0.4961 - auroc: 0.5891 - auprc: 0.0839 - tp: 9.0000 - tn: 118.0000 - fp: 123.0000 - fn: 6.0000 - prec: 0.0682 - rec: 0.6000  17/2110 [..............................] - ETA: 52:26 - loss: 0.8794 - acc: 0.4963 - auroc: 0.6066 - auprc: 0.0872 - tp: 10.0000 - tn: 125.0000 - fp: 131.0000 - fn: 6.0000 - prec: 0.0709 - rec: 0.6250  18/2110 [..............................] - ETA: 52:23 - loss: 0.8650 - acc: 0.4931 - auroc: 0.6036 - auprc: 0.0815 - tp: 10.0000 - tn: 132.0000 - fp: 140.0000 - fn: 6.0000 - prec: 0.0667 - rec: 0.6250  19/2110 [..............................] - ETA: 52:27 - loss: 0.9216 - acc: 0.4934 - auroc: 0.5990 - auprc: 0.0911 - tp: 12.0000 - tn: 138.0000 - fp: 147.0000 - fn: 7.0000 - prec: 0.0755 - rec: 0.6316  20/2110 [..............................] - ETA: 52:22 - loss: 0.8955 - acc: 0.5000 - auroc: 0.6033 - auprc: 0.0877 - tp: 12.0000 - tn: 148.0000 - fp: 153.0000 - fn: 7.0000 - prec: 0.0727 - rec: 0.6316  21/2110 [..............................] - ETA: 52:16 - loss: 0.9233 - acc: 0.5060 - auroc: 0.5863 - auprc: 0.0837 - tp: 12.0000 - tn: 158.0000 - fp: 158.0000 - fn: 8.0000 - prec: 0.0706 - rec: 0.6000  22/2110 [..............................] - ETA: 52:16 - loss: 0.9211 - acc: 0.5028 - auroc: 0.5825 - auprc: 0.0818 - tp: 13.0000 - tn: 164.0000 - fp: 167.0000 - fn: 8.0000 - prec: 0.0722 - rec: 0.6190  23/2110 [..............................] - ETA: 52:15 - loss: 0.9109 - acc: 0.5082 - auroc: 0.5986 - auprc: 0.0875 - tp: 15.0000 - tn: 172.0000 - fp: 173.0000 - fn: 8.0000 - prec: 0.0798 - rec: 0.6522  24/2110 [..............................] - ETA: 52:17 - loss: 0.8962 - acc: 0.5104 - auroc: 0.5989 - auprc: 0.0831 - tp: 15.0000 - tn: 181.0000 - fp: 180.0000 - fn: 8.0000 - prec: 0.0769 - rec: 0.6522  25/2110 [..............................] - ETA: 52:17 - loss: 0.8934 - acc: 0.5075 - auroc: 0.5998 - auprc: 0.0811 - tp: 16.0000 - tn: 187.0000 - fp: 189.0000 - fn: 8.0000 - prec: 0.0780 - rec: 0.6667  26/2110 [..............................] - ETA: 52:19 - loss: 0.8761 - acc: 0.5096 - auroc: 0.6020 - auprc: 0.0790 - tp: 16.0000 - tn: 196.0000 - fp: 196.0000 - fn: 8.0000 - prec: 0.0755 - rec: 0.6667  27/2110 [..............................] - ETA: 52:25 - loss: 0.8696 - acc: 0.5046 - auroc: 0.5985 - auprc: 0.0755 - tp: 16.0000 - tn: 202.0000 - fp: 206.0000 - fn: 8.0000 - prec: 0.0721 - rec: 0.6667  28/2110 [..............................] - ETA: 52:24 - loss: 0.8819 - acc: 0.5045 - auroc: 0.5875 - auprc: 0.0728 - tp: 16.0000 - tn: 210.0000 - fp: 213.0000 - fn: 9.0000 - prec: 0.0699 - rec: 0.6400  29/2110 [..............................] - ETA: 52:35 - loss: 0.8790 - acc: 0.5065 - auroc: 0.5859 - auprc: 0.0720 - tp: 17.0000 - tn: 218.0000 - fp: 220.0000 - fn: 9.0000 - prec: 0.0717 - rec: 0.6538  30/2110 [..............................] - ETA: 52:45 - loss: 0.9036 - acc: 0.5063 - auroc: 0.5711 - auprc: 0.0705 - tp: 17.0000 - tn: 226.0000 - fp: 227.0000 - fn: 10.0000 - prec: 0.0697 - rec: 0.6296  31/2110 [..............................] - ETA: 52:55 - loss: 0.9002 - acc: 0.5081 - auroc: 0.5727 - auprc: 0.0695 - tp: 18.0000 - tn: 234.0000 - fp: 234.0000 - fn: 10.0000 - prec: 0.0714 - rec: 0.6429  32/2110 [..............................] - ETA: 53:03 - loss: 0.8919 - acc: 0.5020 - auroc: 0.5705 - auprc: 0.0670 - tp: 18.0000 - tn: 239.0000 - fp: 245.0000 - fn: 10.0000 - prec: 0.0684 - rec: 0.6429  33/2110 [..............................] - ETA: 53:11 - loss: 0.8811 - acc: 0.5019 - auroc: 0.5839 - auprc: 0.0740 - tp: 19.0000 - tn: 246.0000 - fp: 253.0000 - fn: 10.0000 - prec: 0.0699 - rec: 0.6552  34/2110 [..............................] - ETA: 53:09 - loss: 0.8868 - acc: 0.5018 - auroc: 0.5778 - auprc: 0.0721 - tp: 19.0000 - tn: 254.0000 - fp: 260.0000 - fn: 11.0000 - prec: 0.0681 - rec: 0.6333  35/2110 [..............................] - ETA: 53:06 - loss: 0.8775 - acc: 0.4964 - auroc: 0.5765 - auprc: 0.0704 - tp: 19.0000 - tn: 259.0000 - fp: 271.0000 - fn: 11.0000 - prec: 0.0655 - rec: 0.6333  36/2110 [..............................] - ETA: 53:09 - loss: 0.8693 - acc: 0.4948 - auroc: 0.5752 - auprc: 0.0686 - tp: 19.0000 - tn: 266.0000 - fp: 280.0000 - fn: 11.0000 - prec: 0.0635 - rec: 0.6333  37/2110 [..............................] - ETA: 53:14 - loss: 0.8884 - acc: 0.4949 - auroc: 0.5628 - auprc: 0.0668 - tp: 19.0000 - tn: 274.0000 - fp: 287.0000 - fn: 12.0000 - prec: 0.0621 - rec: 0.6129  38/2110 [..............................] - ETA: 53:16 - loss: 0.9227 - acc: 0.4951 - auroc: 0.5466 - auprc: 0.0644 - tp: 19.0000 - tn: 282.0000 - fp: 294.0000 - fn: 13.0000 - prec: 0.0607 - rec: 0.5938  39/2110 [..............................] - ETA: 53:11 - loss: 0.9197 - acc: 0.4936 - auroc: 0.5543 - auprc: 0.0650 - tp: 20.0000 - tn: 288.0000 - fp: 303.0000 - fn: 13.0000 - prec: 0.0619 - rec: 0.6061  40/2110 [..............................] - ETA: 53:10 - loss: 0.9091 - acc: 0.4922 - auroc: 0.5544 - auprc: 0.0639 - tp: 20.0000 - tn: 295.0000 - fp: 312.0000 - fn: 13.0000 - prec: 0.0602 - rec: 0.6061Error in `tar_throw_run()`:
+! callr subprocess failed: could not start R, exited with non-zero status, has crashed or was killed
+Visit https://books.ropensci.org/targets/debugging.html for debugging advice.
+Backtrace:
+     ▆
+  1. └─{...
+  2.   ├─withr::with_envvar(...)
+  3.   │ └─base::force(code)
+  4.   └─targets::tar_make()
+  5.     └─targets:::callr_outer(...)
+  6.       └─base::tryCatch(...)
+  7.         └─base tryCatchList(expr, classes, parentenv, handlers)
+  8.           └─base tryCatchOne(expr, names, parentenv, handlers[[1L]])
+  9.             └─value[[3L]](cond)
+ 10.               └─targets::tar_throw_run(...)
+ 11.                 └─rlang::abort(...)
+Execution halted

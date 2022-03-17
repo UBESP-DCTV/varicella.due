@@ -1,0 +1,202 @@
+Welcome to depigner: we are here to un-stress you!
+
+Attaching package: ‘testthat’
+
+The following object is masked from ‘package:tarchetypes’:
+
+    matches
+
+The following object is masked from ‘package:targets’:
+
+    matches
+
+✔ skip target rawGold
+✔ skip target preoutputFCunits
+✔ skip target batchSize
+✔ skip target rawFT300
+✔ skip target embeddingDim
+✔ skip target rawDf
+✔ skip target maxLen
+✔ skip target epochs
+✔ skip target rawFT100
+✔ skip target rawPop
+✔ skip target inputDO
+✔ skip target layersDO
+✔ skip target loss
+✔ skip target metrics
+✔ skip target optimizer
+✔ skip target globalGold
+✔ skip target fasttextPretrained300
+✔ skip target varic_df
+✔ skip target fasttextPretrained100
+✔ skip target popolazione
+✔ skip target goldDate
+✔ skip target fasttextPretrained
+✔ skip target gold
+✔ skip target pediaDictSize
+✔ skip target varicella
+✔ skip target report
+✔ skip target varicellas_2010
+✔ skip target varicellas_2011
+✔ skip target varicellas_2012
+✔ skip target varicellas_2013
+✔ skip target varicellas_2004
+✔ skip target varicellas_2005
+✔ skip target varicellas_2006
+✔ skip target varicellas_2007
+✔ skip target varicellas_2008
+✔ skip target varicellas_2009
+✔ skip target ready2mixes_2010
+✔ skip target ready2mixes_2011
+✔ skip target ready2mixes_2012
+✔ skip target ready2mixes_2013
+✔ skip target ready2mixes_2004
+✔ skip target ready2mixes_2005
+✔ skip target ready2mixes_2006
+✔ skip target ready2mixes_2007
+✔ skip target ready2mixes_2008
+✔ skip target ready2mixes_2009
+✔ skip target mixdbs_2010
+✔ skip target mixdbs_2011
+✔ skip target mixdbs_2012
+✔ skip target mixdbs_2013
+✔ skip target mixdbs_2004
+✔ skip target mixdbs_2005
+✔ skip target mixdbs_2006
+✔ skip target mixdbs_2007
+✔ skip target mixdbs_2008
+✔ skip target mixdbs_2009
+✔ skip target corpusDictionary_2010
+✔ skip target corpusDictionary_2011
+✔ skip target corpusDictionary_2012
+✔ skip target corpusDictionary_2013
+✔ skip target corpusDictionary_2004
+✔ skip target corpusDictionary_2005
+✔ skip target corpusDictionary_2006
+✔ skip target corpusDictionary_2007
+✔ skip target corpusDictionary_2008
+✔ skip target corpusDictionary_2009
+✔ skip target corpusDicSize_2010
+✔ skip target corpusDicSize_2011
+✔ skip target corpusDicSize_2012
+✔ skip target corpusDicSize_2013
+✔ skip target corpusDicSize_2004
+✔ skip target corpusDicSize_2005
+✔ skip target corpusDicSize_2006
+✔ skip target corpusDicSize_2007
+✔ skip target corpusDicSize_2008
+✔ skip target corpusDicSize_2009
+✔ skip target maxWords_2010
+✔ skip target maxWords_2011
+✔ skip target maxWords_2012
+✔ skip target maxWords_2013
+✔ skip target maxWords_2004
+✔ skip target maxWords_2005
+✔ skip target maxWords_2006
+✔ skip target maxWords_2007
+✔ skip target maxWords_2008
+✔ skip target maxWords_2009
+✔ skip target adjustesMaxWords_2010
+✔ skip target sets_for_keras_2010
+✔ skip target embeddingMatrix_2010
+✔ skip target adjustesMaxWords_2011
+✔ skip target sets_for_keras_2011
+✔ skip target embeddingMatrix_2011
+✔ skip target adjustesMaxWords_2012
+✔ skip target sets_for_keras_2012
+✔ skip target embeddingMatrix_2012
+✔ skip target adjustesMaxWords_2013
+✔ skip target sets_for_keras_2013
+✔ skip target embeddingMatrix_2013
+✔ skip target embeddingMatrix_2004
+✔ skip target sets_for_keras_2004
+✔ skip target adjustesMaxWords_2004
+✔ skip target embeddingMatrix_2005
+✔ skip target sets_for_keras_2005
+✔ skip target adjustesMaxWords_2005
+✔ skip target embeddingMatrix_2006
+✔ skip target sets_for_keras_2006
+✔ skip target adjustesMaxWords_2006
+✔ skip target embeddingMatrix_2007
+✔ skip target sets_for_keras_2007
+✔ skip target adjustesMaxWords_2007
+✔ skip target embeddingMatrix_2008
+✔ skip target sets_for_keras_2008
+✔ skip target adjustesMaxWords_2008
+✔ skip target embeddingMatrix_2009
+✔ skip target sets_for_keras_2009
+✔ skip target adjustesMaxWords_2009
+• start target testBidirectionalDeepGru_2010
+Loaded Tensorflow version 2.8.0
+2022-03-06 12:29:09.191017: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:936] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-03-06 12:29:09.237816: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:936] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-03-06 12:29:09.238134: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:936] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-03-06 12:29:09.238775: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-03-06 12:29:09.239594: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:936] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-03-06 12:29:09.239839: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:936] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-03-06 12:29:09.240042: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:936] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-03-06 12:29:09.653988: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:936] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-03-06 12:29:09.654170: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:936] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-03-06 12:29:09.654298: I tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:936] successful NUMA node read from SysFS had negative value (-1), but there must be at least one NUMA node, so returning NUMA node zero
+2022-03-06 12:29:09.654421: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1525] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 13479 MB memory:  -> device: 0, name: Quadro RTX 5000, pci bus id: 0000:01:00.0, compute capability: 7.5
+Model: "model"
+________________________________________________________________________________
+ Layer (type)                       Output Shape                    Param #     
+================================================================================
+ input_1 (InputLayer)               [(None, 10000)]                 0           
+                                                                                
+ l1_embedding (Embedding)           (None, 10000, 300)              36782700    
+                                                                                
+ l1_batch-norm (BatchNormalization)  (None, 10000, 300)             1200        
+                                                                                
+ l1_dropout (Dropout)               (None, 10000, 300)              0           
+                                                                                
+ bidirectional_1 (Bidirectional)    (None, 10000, 512)              857088      
+                                                                                
+ bidirectional (Bidirectional)      (None, 512)                     1182720     
+                                                                                
+ l2_batch-norm (BatchNormalization)  (None, 512)                    2048        
+                                                                                
+ l2_dropout (Dropout)               (None, 512)                     0           
+                                                                                
+ fc_out_1 (Dense)                   (None, 128)                     65664       
+                                                                                
+ batch_normalization_1 (BatchNormal  (None, 128)                    512         
+ ization)                                                                       
+                                                                                
+ dropout_1 (Dropout)                (None, 128)                     0           
+                                                                                
+ fc_out_2 (Dense)                   (None, 128)                     16512       
+                                                                                
+ batch_normalization (BatchNormaliz  (None, 128)                    512         
+ ation)                                                                         
+                                                                                
+ dropout (Dropout)                  (None, 128)                     0           
+                                                                                
+ out_fc (Dense)                     (None, 2)                       258         
+                                                                                
+================================================================================
+Total params: 38,909,214
+Trainable params: 2,124,378
+Non-trainable params: 36,784,836
+________________________________________________________________________________
+Epoch 1/15
+2022-03-06 12:29:20.289738: I tensorflow/stream_executor/cuda/cuda_dnn.cc:368] Loaded cuDNN version 8302
+   1/2110 [..............................] - ETA: 4:18:07 - loss: 0.6272 - acc: 0.4375 - auroc: 0.5117 - auprc: 0.4850 - tp: 10.0000 - tn: 8.0000 - fp: 8.0000 - fn: 6.0000 - prec: 0.5556 - rec: 0.6250   2/2110 [..............................] - ETA: 49:07 - loss: 0.8830 - acc: 0.4375 - auroc: 0.4907 - auprc: 0.4819 - tp: 17.0000 - tn: 16.0000 - fp: 16.0000 - fn: 15.0000 - prec: 0.5152 - rec: 0.5312   3/2110 [..............................] - ETA: 50:15 - loss: 0.8278 - acc: 0.4792 - auroc: 0.4666 - auprc: 0.4571 - tp: 24.0000 - tn: 24.0000 - fp: 24.0000 - fn: 24.0000 - prec: 0.5000 - rec: 0.5000   4/2110 [..............................] - ETA: 49:38 - loss: 0.9188 - acc: 0.5156 - auroc: 0.4698 - auprc: 0.4595 - tp: 34.0000 - tn: 31.0000 - fp: 33.0000 - fn: 30.0000 - prec: 0.5075 - rec: 0.5312   5/2110 [..............................] - ETA: 49:50 - loss: 0.8276 - acc: 0.5250 - auroc: 0.4821 - auprc: 0.4743 - tp: 42.0000 - tn: 38.0000 - fp: 42.0000 - fn: 38.0000 - prec: 0.5000 - rec: 0.5250Error in `tar_throw_run()`:
+! callr subprocess failed: could not start R, exited with non-zero status, has crashed or was killed
+Visit https://books.ropensci.org/targets/debugging.html for debugging advice.
+Backtrace:
+     ▆
+  1. └─{...
+  2.   ├─withr::with_envvar(...)
+  3.   │ └─base::force(code)
+  4.   └─targets::tar_make()
+  5.     └─targets:::callr_outer(...)
+  6.       └─base::tryCatch(...)
+  7.         └─base tryCatchList(expr, classes, parentenv, handlers)
+  8.           └─base tryCatchOne(expr, names, parentenv, handlers[[1L]])
+  9.             └─value[[3L]](cond)
+ 10.               └─targets::tar_throw_run(...)
+ 11.                 └─rlang::abort(...)
+Execution halted
