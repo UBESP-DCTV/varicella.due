@@ -51,7 +51,7 @@ test_bidirectional_deepgru <- function(
 
   # Model definition ================================================
   run_name <- glue::glue(
-    "1.3.1.{last_year_of_data}-bidirectional-deepGRU"
+    "1.3.5.{last_year_of_data}-bidirectional-deepGRU"
   )
   architecture <- glue::glue("
   ```
@@ -121,7 +121,7 @@ test_bidirectional_deepgru <- function(
     keras::layer_batch_normalization() |>
     keras::layer_dropout(layers_do) |>
     keras::layer_dense(
-      units = 2L,
+      units = 1L,
       activation = "sigmoid",
       name = "out_fc")
 
@@ -134,7 +134,7 @@ test_bidirectional_deepgru <- function(
   # COMPILE =========================================================
 
   metrics <-     list(
-    keras::metric_categorical_accuracy(name = "acc"),
+    keras::metric_binary_accuracy(name = "acc"),
     keras::metric_auc(name = "auroc"),
     keras::metric_auc(name = "auprc", curve = "PR"),
     keras::metric_true_positives(name = "tp"),
@@ -144,6 +144,8 @@ test_bidirectional_deepgru <- function(
     keras::metric_precision(name = "prec"),
     keras::metric_recall(name = "rec")
   )
+
+  optimizer <- keras::optimizer_adam(amsgrad = TRUE)
 
   model |>
     keras::compile(
@@ -158,9 +160,10 @@ test_bidirectional_deepgru <- function(
   callbacks <- list(
    keras::callback_tensorboard(log_dir = log_dir),
    keras::callback_early_stopping(
-      "val_auroc",
+      "auroc",
       patience = 5L,
-      restore_best_weights = TRUE
+      restore_best_weights = TRUE,
+      mode = "max"
     )
   )
 
@@ -171,12 +174,13 @@ test_bidirectional_deepgru <- function(
       model,
       # train ------------------------
       x = train[["train_x"]],
-      y = train[["train_y"]],
-      class_weight = weights,
+      y = train[["train_y"]][, 2],
+      # class_weight = weights,
+      sample_weight = train[["train_y"]] %*% unlist(weights),
       # validation -------------------
       validation_data = list(
         validation[["validation_x"]],
-        validation[["validation_y"]]
+        validation[["validation_y"]][, 2]
       ),
       # learning pace ----------------
       batch_size = batch_size,

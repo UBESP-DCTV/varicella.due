@@ -344,3 +344,17 @@ epochs <- 50
 
 
 
+
+as.list(
+    nrow(train$train_y) /
+      (train$n_class * colSums(train$train_y))
+  ) |>
+  setNames(c("0", "1"))
+
+
+
+
+testBidirectionalDeepGru__2010 <- tar_read(testBidirectionalDeepGru_2010)
+
+
+
