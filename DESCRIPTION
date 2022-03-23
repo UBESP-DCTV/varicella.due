@@ -14,6 +14,31 @@ Description: What the package does (one paragraph).
 License: file LICENSE
 Depends: 
     R (>= 2.10)
+Imports: 
+    furrr,
+    dplyr,
+    lubridate,
+    readr,
+    rlang (>= 0.4.11),
+    stringr,
+    tibble,
+    tidyr,
+    keras,
+    depigner,
+    limpido (>= 0.1.1),
+    janitor,
+    forcats,
+    future,
+    future.callr,
+    future.batchtools,
+    bs4Dash,
+    DT,
+    gt,
+    pingr,
+    shinybusy,
+    shinyWidgets,
+    qs,
+    clustermq
 Suggests: 
     autotestthat (>= 0.1.1),
     checkmate,
@@ -25,17 +50,19 @@ Suggests:
     markdown,
     miniUI,
     purrr,
+    roxygen2,
     spelling,
-    stringr,
     tarchetypes (>= 0.3.2.9000),
     targets (>= 0.9.0.9000),
     testthat (>= 3.0.0),
     usethis,
+    visNetwork,
     withr
 Remotes: 
     CorradoLanera/autotestthat,
     ropensci/tarchetypes,
-    ropensci/targets
+    ropensci/targets,
+    UBESP-DCTV/limpido
 Config/testthat/edition: 3
 Encoding: UTF-8
 Language: en-US

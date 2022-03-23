@@ -4,12 +4,13 @@
 
 dev_pkgs <- c(
   "checkmate", "devtools", "fs", "gitcreds", "here", "markdown",
-  "miniUI", "purrr", "stringr", "testthat", "usethis", "withr",
-  "spelling", "lintr"
+  "miniUI", "purrr", "testthat", "usethis", "withr",
+  "spelling", "lintr", "visNetwork"
 )
 
 
 renv::install(dev_pkgs)
+
 
 usethis::use_description(check_name = FALSE)
 usethis::use_proprietary_license("Corrado Lanera & UBEP")
@@ -19,18 +20,11 @@ dev_pkgs |>
   purrr::walk(usethis::use_package, type = "Suggests")
 
 
-
 meta_pkgs <- c("tidymodels", "tidyverse")
 renv::install(meta_pkgs)
 
 
-prj_pkgs <- c(
-)
-renv::install(prj_pkgs)
-prj_pkgs |>
-  purrr::walk(usethis::use_package)
-
-
+usethis::use_tidy_eval()
 
 gh_dev_pkgs <- c(
   "ropensci/targets",
@@ -47,11 +41,15 @@ purrr::walk(gh_dev_pkgs, ~{
 
 
 
+
+
 # infrastruttura --------------------------------------------------
 
 usethis::use_readme_rmd()
 usethis::use_code_of_conduct("corrado.lanera@ubep.unipd.it")
 usethis::use_lifecycle_badge("experimental")
+
+usethis::use_package_doc()
 
 usethis::git_vaccinate()
 
@@ -74,8 +72,3 @@ usethis::edit_r_profile("project")
 usethis::use_tidy_description()
 renv::status()
 renv::snapshot()
-
-
-
-
-

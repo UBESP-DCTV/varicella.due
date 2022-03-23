@@ -1,4 +1,10 @@
 .Rproj.user
 .Rhistory
+.Renviron
 .RData
 .Ruserdata
+data-raw
+
+data/
+
+*.v2

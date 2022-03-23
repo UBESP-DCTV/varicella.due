@@ -7,3 +7,8 @@
 ^data-raw$
 ^dev$
 ^\.lintr$
+^_targets$
+^_targets.R$
+^explore.R$
+^reports$
+^run.R$
